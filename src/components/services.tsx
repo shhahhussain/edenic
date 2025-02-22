@@ -1,9 +1,22 @@
 "use client"
-
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog"
 import { Code, Cloud, Cog, Smartphone, Palette, BarChart } from "lucide-react"
+interface Service {
+  title: string;
+  description: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
+  details: string;
+  features: string[];
+}
 
 const services = [
   {
@@ -12,6 +25,12 @@ const services = [
     icon: Code,
     details:
       "Our expert team crafts bespoke software solutions tailored to your unique business requirements. We use cutting-edge technologies and best practices to deliver high-quality, scalable, and maintainable software that drives your business forward.",
+    features: [
+      "Web Applications",
+      "Enterprise Software",
+      "API Development and Integration",
+      "Legacy System Modernization",
+    ],
   },
   {
     title: "DevOps Consulting",
@@ -19,6 +38,12 @@ const services = [
     icon: Cog,
     details:
       "Our DevOps consulting services help organizations streamline their development and operations processes. We work with you to implement best practices, automate workflows, and foster a culture of collaboration and continuous improvement.",
+    features: [
+      "CI/CD Pipeline Implementation",
+      "Infrastructure as Code (IaC)",
+      "Containerization and Orchestration",
+      "Monitoring and Logging Solutions",
+    ],
   },
   {
     title: "Cloud Migration & Management",
@@ -26,6 +51,12 @@ const services = [
     icon: Cloud,
     details:
       "We guide businesses through their cloud journey, from initial migration to ongoing optimization. Our cloud experts ensure a smooth transition to the cloud while maximizing performance, security, and cost-efficiency.",
+    features: [
+      "Cloud Strategy and Architecture",
+      "Multi-Cloud and Hybrid Cloud Solutions",
+      "Cloud Security and Compliance",
+      "Performance Optimization",
+    ],
   },
   {
     title: "Mobile App Development",
@@ -33,6 +64,12 @@ const services = [
     icon: Smartphone,
     details:
       "Our mobile development team creates powerful, user-friendly applications for iOS and Android platforms. We focus on delivering seamless user experiences and robust functionality to meet your mobile strategy needs.",
+    features: [
+      "Native iOS and Android Development",
+      "Cross-platform Development (React Native, Flutter)",
+      "Mobile App UI/UX Design",
+      "App Store Optimization and Deployment",
+    ],
   },
   {
     title: "UI/UX Design",
@@ -40,6 +77,12 @@ const services = [
     icon: Palette,
     details:
       "Our UI/UX design services focus on creating intuitive, engaging, and visually appealing interfaces for web and mobile applications. We combine aesthetics with functionality to deliver exceptional user experiences.",
+    features: [
+      "User Research and Persona Development",
+      "Wireframing and Prototyping",
+      "Visual Design and Branding",
+      "Usability Testing and Iteration",
+    ],
   },
   {
     title: "Data Analytics & Visualization",
@@ -47,12 +90,50 @@ const services = [
     icon: BarChart,
     details:
       "We help you harness the power of your data through advanced analytics and visualization techniques. Our solutions enable you to make data-driven decisions and gain valuable insights into your business operations.",
+    features: [
+      "Data Strategy and Architecture",
+      "Business Intelligence Solutions",
+      "Machine Learning and AI Integration",
+      "Custom Dashboards and Reporting",
+    ],
   },
 ]
 
-const Services = () => {
-  const [selectedService, setSelectedService] = useState<number | null>(null)
+const ServiceCard = ({ service }: { service: Service }) => { 
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Card className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105">
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <service.icon className="w-6 h-6 mr-2 text-primary" />
+              {service.title}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription>{service.description}</CardDescription>
+          </CardContent>
+        </Card>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>{service.title}</DialogTitle>
+          <DialogDescription>{service.details}</DialogDescription>
+        </DialogHeader>
+        <div className="mt-4">
+          <h4 className="font-semibold mb-2">Key Features:</h4>
+          <ul className="list-disc pl-5 space-y-1">
+            {service.features.map((feature, index) => (
+              <li key={index}>{feature}</li>
+            ))}
+          </ul>
+        </div>
+      </DialogContent>
+    </Dialog>
+  )
+}
 
+const Services = () => {
   return (
     <section id="services" className="py-24 bg-secondary/50">
       <div className="container mx-auto px-4">
@@ -74,33 +155,7 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card
-                className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105"
-                onClick={() => setSelectedService(selectedService === index ? null : index)}
-              >
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <service.icon className="w-6 h-6 mr-2 text-primary" />
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{service.description}</CardDescription>
-                  <AnimatePresence>
-                    {selectedService === index && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-4 text-sm"
-                      >
-                        {service.details}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </CardContent>
-              </Card>
+              <ServiceCard service={service} />
             </motion.div>
           ))}
         </div>
