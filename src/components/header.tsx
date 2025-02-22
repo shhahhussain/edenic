@@ -19,7 +19,7 @@ const Header = () => {
             <span className="sr-only">EDENIC</span>
             <img
               className="h-8 w-auto"
-              src="/logo.png"
+              src="/favicon.svg"
               alt="EDENIC Logo"
             />
           </Link>
