@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, 
   },
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/edenic/' : '', // Correct asset prefix
 };
 
 export default nextConfig;
