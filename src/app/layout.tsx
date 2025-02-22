@@ -7,7 +7,7 @@ import Header from "../components/header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "EDENIC",
+  title: "Edenic",
   description:
     "Elevate your business with cutting-edge development and DevOps services from EDENIC.",
   icons: [{ rel: "icon", url: "/favicon.svg" }],
