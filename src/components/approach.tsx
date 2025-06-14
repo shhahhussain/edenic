@@ -29,10 +29,10 @@ const steps = [
 
 const Approach = () => {
   return (
-    <section id="approach" className="py-24">
+    <section id="approach" className="py-16 sm:py-24 bg-background dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-3xl font-bold text-center mb-12 text-foreground"
+          className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-blue-600 dark:text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -40,7 +40,7 @@ const Approach = () => {
         >
           Our Approach
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -51,7 +51,7 @@ const Approach = () => {
             >
               <ServiceCard
                 icon={
-                  <span className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-lg font-bold">
+                  <span className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-600 dark:to-purple-600 text-white flex items-center justify-center text-lg font-bold">
                     {index + 1}
                   </span>
                 }

@@ -38,13 +38,13 @@ const solutions = [
 
 const Solutions = () => {
     return (
-        <div className="bg-background py-24 sm:py-32">
+        <div className="bg-background dark:bg-gray-900 py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                    <h2 className="text-3xl font-bold tracking-tight text-blue-600 dark:text-white sm:text-4xl">
                         Comprehensive Cloud Solutions
                     </h2>
-                    <p className="mt-6 text-lg leading-8 text-muted-foreground">
+                    <p className="mt-6 text-lg leading-8 text-muted-foreground dark:text-gray-300">
                         We offer a wide range of cloud services to help your business thrive in the digital age.
                     </p>
                 </div>
@@ -52,11 +52,11 @@ const Solutions = () => {
                     <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
                         {solutions.map((solution) => (
                             <div key={solution.name} className="flex flex-col">
-                                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-foreground">
-                                    <solution.icon className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
+                                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-foreground dark:text-gray-100">
+                                    <solution.icon className="h-5 w-5 flex-none text-primary dark:text-blue-400" aria-hidden="true" />
                                     {solution.name}
                                 </dt>
-                                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-foreground">
+                                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-foreground dark:text-gray-300">
                                     <p className="flex-auto">{solution.description}</p>
                                 </dd>
                             </div>

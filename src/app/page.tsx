@@ -1,5 +1,5 @@
 import Hero from "../components/hero"
-import PromoBanner from "../components/promo-banner"
+// import PromoBanner from "../components/promo-banner"
 import CloudFacts from "../components/cloud-facts"
 import Services from "../components/services"
 import Solutions from "../components/solutions"
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <PromoBanner />
+      {/* <PromoBanner /> */}
       <CloudFacts />
       <Services />
       {/* <Solutions /> */}

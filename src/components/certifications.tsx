@@ -50,24 +50,24 @@ const awardsAndPartnerships = [
 
 export default function Certifications() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-16 sm:py-24 bg-background dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent mb-4">
+          <h2 className="text-2xl sm:text-4xl font-bold text-blue-600 dark:text-white mb-4">
             Our Awards and Partnerships
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto">
             Recognized for excellence in cloud solutions and trusted by industry leaders
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {awardsAndPartnerships
             .filter((item) => item.type === "award")
             .map((award, index) => (
@@ -79,8 +79,8 @@ export default function Certifications() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-card rounded-2xl shadow-xl p-8 transform hover:-translate-y-1 transition-all duration-300 border border-border">
-                  <div className="relative h-48 mb-6 rounded-xl overflow-hidden">
+                <div className="bg-card dark:bg-gray-800/50 rounded-2xl shadow-xl p-6 sm:p-8 transform hover:-translate-y-1 transition-all duration-300 border border-border dark:border-gray-700">
+                  <div className="relative h-40 sm:h-48 mb-6 rounded-xl overflow-hidden">
                     <Image
                       src={award.image}
                       alt={award.title}
@@ -88,14 +88,14 @@ export default function Certifications() {
                       className="object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-3">{award.title}</h3>
-                  <p className="text-muted-foreground">{award.description}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground dark:text-gray-100 mb-3">{award.title}</h3>
+                  <p className="text-muted-foreground dark:text-gray-300 text-sm sm:text-base">{award.description}</p>
                 </div>
               </motion.div>
             ))}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 items-center justify-center">
           {awardsAndPartnerships
             .filter((item) => item.type === "partner")
             .map((partner, index) => (
@@ -107,8 +107,8 @@ export default function Certifications() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-card rounded-2xl p-6 shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-border">
-                  <div className="relative h-32 mb-4 rounded-xl overflow-hidden">
+                <div className="bg-card dark:bg-gray-800/50 rounded-2xl p-4 sm:p-6 shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-border dark:border-gray-700">
+                  <div className="relative h-24 sm:h-32 mb-4 rounded-xl overflow-hidden">
                     <Image
                       src={partner.image}
                       alt={partner.title}
@@ -116,7 +116,7 @@ export default function Certifications() {
                       className="object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground text-center">{partner.title}</h3>
+                  <h3 className="text-sm sm:text-lg font-semibold text-foreground dark:text-gray-100 text-center">{partner.title}</h3>
                 </div>
               </motion.div>
             ))}

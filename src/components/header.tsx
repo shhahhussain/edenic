@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { MenuIcon } from "lucide-react"
+import { MenuIcon, Moon, Sun } from "lucide-react"
 import { Button } from "./ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
 import { useTheme } from "next-themes"
@@ -43,7 +43,9 @@ export const Header = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
       className={`fixed w-full z-50 transition-all duration-400 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md' : 'bg-transparent'
+        isScrolled 
+          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm' 
+          : 'bg-transparent'
       }`}
     >
       <div className="relative">
@@ -57,7 +59,7 @@ export const Header = () => {
                     src="/logo.png"
                     alt="CloudFlow"
                     fill
-                    className="object-contain"
+                    className="object-contain dark:opacity-90"
                     priority
                   />
                 </div>
@@ -74,11 +76,11 @@ export const Header = () => {
                 >
                   <Link
                     href={item.href}
-                    className="relative text-gray-700 hover:text-gray-900 group"
+                    className="relative text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 group"
                   >
                     {item.label}
                     <motion.span
-                      className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400"
+                      className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-400 dark:bg-blue-300"
                       initial={{ scaleX: 0 }}
                       whileHover={{ scaleX: 1 }}
                       transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -91,49 +93,67 @@ export const Header = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.7 }}
                 whileHover={{ scale: 1.05 }}
-                className="relative px-6 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium overflow-hidden group"
+                className="relative px-6 py-2 rounded-full bg-blue-600 text-white font-medium overflow-hidden group hover:bg-blue-700 transition-colors dark:bg-blue-600 dark:hover:bg-blue-700 dark:text-white"
               >
                 <span className="relative z-10">Get Started</span>
                 <motion.div
-                  className="absolute inset-0 bg-white/20"
+                  className="absolute inset-0 bg-white/10 dark:bg-gray-100/10"
                   initial={{ scale: 0 }}
                   whileHover={{ scale: 2 }}
                   transition={{ duration: 0.3 }}
                 />
               </motion.button>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
+                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </Button>
             </nav>
 
-            <button
-              className="md:hidden relative w-10 h-10"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              <motion.div
-                animate={isMobileMenuOpen ? 'open' : 'closed'}
-                className="absolute inset-0"
+            <div className="flex items-center space-x-2 md:hidden">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800"
               >
-                <motion.span
-                  variants={{
-                    closed: { rotate: 0, y: 0 },
-                    open: { rotate: 45, y: 8 }
-                  }}
-                  className="block w-6 h-0.5 bg-gray-700 absolute top-4 left-2"
-                />
-                <motion.span
-                  variants={{
-                    closed: { opacity: 1 },
-                    open: { opacity: 0 }
-                  }}
-                  className="block w-6 h-0.5 bg-gray-700 absolute top-5 left-2"
-                />
-                <motion.span
-                  variants={{
-                    closed: { rotate: 0, y: 0 },
-                    open: { rotate: -45, y: -8 }
-                  }}
-                  className="block w-6 h-0.5 bg-gray-700 absolute top-6 left-2"
-                />
-              </motion.div>
-            </button>
+                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </Button>
+              <button
+                className="relative w-10 h-10"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                <motion.div
+                  animate={isMobileMenuOpen ? 'open' : 'closed'}
+                  className="absolute inset-0"
+                >
+                  <motion.span
+                    variants={{
+                      closed: { rotate: 0, y: 0 },
+                      open: { rotate: 45, y: 8 }
+                    }}
+                    className="block w-6 h-0.5 bg-gray-900 dark:bg-gray-100 absolute top-4 left-2"
+                  />
+                  <motion.span
+                    variants={{
+                      closed: { opacity: 1 },
+                      open: { opacity: 0 }
+                    }}
+                    className="block w-6 h-0.5 bg-gray-900 dark:bg-gray-100 absolute top-5 left-2"
+                  />
+                  <motion.span
+                    variants={{
+                      closed: { rotate: 0, y: 0 },
+                      open: { rotate: -45, y: -8 }
+                    }}
+                    className="block w-6 h-0.5 bg-gray-900 dark:bg-gray-100 absolute top-6 left-2"
+                  />
+                </motion.div>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -145,7 +165,7 @@ export const Header = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 20 }}
-            className="fixed inset-y-0 right-0 w-64 bg-white/80 backdrop-blur-md md:hidden"
+            className="fixed inset-y-0 right-0 w-64 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md md:hidden shadow-lg"
           >
             <div className="relative h-full">
               <CloudTrail />
@@ -154,13 +174,13 @@ export const Header = () => {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="text-gray-700 hover:text-gray-900"
+                    className="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
                   </Link>
                 ))}
-                <button className="px-6 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium">
+                <button className="px-6 py-2 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors dark:bg-blue-600 dark:hover:bg-blue-700">
                   Get Started
                 </button>
               </div>

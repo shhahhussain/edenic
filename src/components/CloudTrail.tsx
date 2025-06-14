@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react'
+import { useTheme } from 'next-themes'
 
 export const CloudTrail = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const { theme } = useTheme()
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -41,7 +43,8 @@ export const CloudTrail = () => {
         if (!ctx) return
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`
+        const color = theme === 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.3)'
+        ctx.fillStyle = color
         ctx.fill()
       }
     }
@@ -79,13 +82,13 @@ export const CloudTrail = () => {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [])
+  }, [theme])
 
   return (
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.3 }}
+      style={{ opacity: theme === 'dark' ? 0.2 : 0.1 }}
     />
   )
 } 

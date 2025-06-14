@@ -26,7 +26,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-background">
+    <section id="contact" className="py-16 sm:py-24 bg-background dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -34,28 +34,27 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent mb-4">
+            <h2 className="text-2xl sm:text-4xl font-bold text-blue-600 dark:text-white mb-4">
               Let's Connect
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto">
               Ready to transform your business with cloud solutions? Get in touch with us today.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="bg-card rounded-2xl shadow-xl p-8 transform hover:-translate-y-1 transition-all duration-300 border border-border">
+              <div className="bg-card dark:bg-gray-800/50 rounded-2xl shadow-xl p-6 sm:p-8 transform hover:-translate-y-1 transition-all duration-300 border border-border dark:border-gray-700">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground dark:text-gray-100 mb-1">
                       Name
                     </label>
                     <Input
@@ -64,12 +63,12 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full rounded-xl border border-border bg-input text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+                      className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:border-primary dark:focus:border-blue-400 focus:ring-primary dark:focus:ring-blue-400"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground dark:text-gray-100 mb-1">
                       Email
                     </label>
                     <Input
@@ -78,12 +77,12 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full rounded-xl border border-border bg-input text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+                      className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:border-primary dark:focus:border-blue-400 focus:ring-primary dark:focus:ring-blue-400"
                       placeholder="your.email@example.com"
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="message" className="block text-sm font-medium text-foreground dark:text-gray-100 mb-1">
                       Message
                     </label>
                     <Textarea
@@ -92,13 +91,13 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={4}
-                      className="w-full rounded-xl border border-border bg-input text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary"
+                      className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:border-primary dark:focus:border-blue-400 focus:ring-primary dark:focus:ring-blue-400"
                       placeholder="Tell us about your project"
                     />
                   </div>
                   <Button 
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 hover:from-blue-600 hover:to-blue-700 dark:hover:from-blue-700 dark:hover:to-blue-800 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     Send Message
                   </Button>
@@ -106,7 +105,6 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Contact Information */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -114,36 +112,36 @@ export default function Contact() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="space-y-8"
             >
-              <div className="bg-card rounded-2xl shadow-xl p-8 transform hover:-translate-y-1 transition-all duration-300 border border-border">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent mb-6">
+              <div className="bg-card dark:bg-gray-800/50 rounded-2xl shadow-xl p-6 sm:p-8 transform hover:-translate-y-1 transition-all duration-300 border border-border dark:border-gray-700">
+                <h3 className="text-xl sm:text-2xl font-bold text-blue-600 dark:text-white mb-6">
                   Contact Information
                 </h3>
                 <div className="space-y-6">
-                  <div className="flex items-center space-x-4 p-4 bg-secondary rounded-xl hover:bg-secondary/80 transition-colors duration-300">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                  <div className="flex items-center space-x-4 p-4 bg-secondary dark:bg-gray-700/50 rounded-xl hover:bg-secondary/80 dark:hover:bg-gray-700/80 transition-colors duration-300">
+                    <div className="w-12 h-12 bg-blue-600 dark:bg-gray-700 rounded-xl flex items-center justify-center">
                       <Phone className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Phone</p>
-                      <p className="text-foreground font-medium">+1 (917) 732-2205</p>
+                      <p className="text-sm text-muted-foreground dark:text-gray-400">Phone</p>
+                      <p className="text-foreground dark:text-gray-100 font-medium">+1 (917) 732-2205</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4 p-4 bg-secondary rounded-xl hover:bg-secondary/80 transition-colors duration-300">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                  <div className="flex items-center space-x-4 p-4 bg-secondary dark:bg-gray-700/50 rounded-xl hover:bg-secondary/80 dark:hover:bg-gray-700/80 transition-colors duration-300">
+                    <div className="w-12 h-12 bg-blue-600 dark:bg-gray-700 rounded-xl flex items-center justify-center">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="text-foreground font-medium">contact@edenic.com</p>
+                      <p className="text-sm text-muted-foreground dark:text-gray-400">Email</p>
+                      <p className="text-foreground dark:text-gray-100 font-medium">contact@edenic.com</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4 p-4 bg-secondary rounded-xl hover:bg-secondary/80 transition-colors duration-300">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                  <div className="flex items-center space-x-4 p-4 bg-secondary dark:bg-gray-700/50 rounded-xl hover:bg-secondary/80 dark:hover:bg-gray-700/80 transition-colors duration-300">
+                    <div className="w-12 h-12 bg-blue-600 dark:bg-gray-700 rounded-xl flex items-center justify-center">
                       <MapPin className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Address</p>
-                      <p className="text-foreground font-medium">8 The Green #21172 Dover, DE, 19901, USA</p>
+                      <p className="text-sm text-muted-foreground dark:text-gray-400">Address</p>
+                      <p className="text-foreground dark:text-gray-100 font-medium">8 The Green #21172 Dover, DE, 19901, USA</p>
                     </div>
                   </div>
                 </div>
