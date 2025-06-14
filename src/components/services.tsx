@@ -1,168 +1,85 @@
 "use client"
-import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "./ui/dialog"
-import { Code, Cloud, Cog, Smartphone, Palette, BarChart } from "lucide-react"
-interface Service {
-  title: string;
-  description: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
-  details: string;
-  features: string[];
-}
+import { Cloud, Server, Code, RefreshCw, Users } from "lucide-react"
+import { Button } from "./ui/button"
+import Link from "next/link"
 
 const services = [
   {
-    title: "Custom Software Development",
-    description: "Tailored solutions to meet your unique business needs",
-    icon: Code,
-    details:
-      "Our expert team crafts bespoke software solutions tailored to your unique business requirements. We use cutting-edge technologies and best practices to deliver high-quality, scalable, and maintainable software that drives your business forward.",
-    features: [
-      "Web Applications",
-      "Enterprise Software",
-      "API Development and Integration",
-      "Legacy System Modernization",
-    ],
-  },
-  {
-    title: "DevOps Consulting",
-    description: "Streamline your development and operations processes",
-    icon: Cog,
-    details:
-      "Our DevOps consulting services help organizations streamline their development and operations processes. We work with you to implement best practices, automate workflows, and foster a culture of collaboration and continuous improvement.",
-    features: [
-      "CI/CD Pipeline Implementation",
-      "Infrastructure as Code (IaC)",
-      "Containerization and Orchestration",
-      "Monitoring and Logging Solutions",
-    ],
-  },
-  {
-    title: "Cloud Migration & Management",
-    description: "Seamless transition and optimization of cloud infrastructure",
+    slug: "cloud-migration",
+    name: "Cloud Migration, Data Recovery & Backups",
+    description: "We ensure seamlessly cloud migration data security, simplified management, and compliance standards. Achieve uninterrupted business continuity with our seamless Data Recovery & Backup solutions.",
     icon: Cloud,
-    details:
-      "We guide businesses through their cloud journey, from initial migration to ongoing optimization. Our cloud experts ensure a smooth transition to the cloud while maximizing performance, security, and cost-efficiency.",
-    features: [
-      "Cloud Strategy and Architecture",
-      "Multi-Cloud and Hybrid Cloud Solutions",
-      "Cloud Security and Compliance",
-      "Performance Optimization",
-    ],
   },
   {
-    title: "Mobile App Development",
-    description: "Create powerful, user-friendly mobile applications",
-    icon: Smartphone,
-    details:
-      "Our mobile development team creates powerful, user-friendly applications for iOS and Android platforms. We focus on delivering seamless user experiences and robust functionality to meet your mobile strategy needs.",
-    features: [
-      "Native iOS and Android Development",
-      "Cross-platform Development (React Native, Flutter)",
-      "Mobile App UI/UX Design",
-      "App Store Optimization and Deployment",
-    ],
+    slug: "kubernetes",
+    name: "Managed or Un-managed Kubernetes",
+    description: "Orchestrate containerized applications across AWS, Azure, and on-premises environments. Deploy, scale, and seamlessly upgrade containerized apps using Kubernetes clusters for optimal performance and flexibility.",
+    icon: Server,
   },
   {
-    title: "UI/UX Design",
-    description: "Craft intuitive and engaging user experiences",
-    icon: Palette,
-    details:
-      "Our UI/UX design services focus on creating intuitive, engaging, and visually appealing interfaces for web and mobile applications. We combine aesthetics with functionality to deliver exceptional user experiences.",
-    features: [
-      "User Research and Persona Development",
-      "Wireframing and Prototyping",
-      "Visual Design and Branding",
-      "Usability Testing and Iteration",
-    ],
+    slug: "terraform",
+    name: "Infrastructure as Code using Terraform",
+    description: "Establish an orchestration system through well-structured infrastructure, utilizing AWS and Azure, and the implementation of declarative code. Automate infrastructure deployment to ensure scalability and efficiency.",
+    icon: Code,
   },
   {
-    title: "Data Analytics & Visualization",
-    description: "Turn your data into actionable insights",
-    icon: BarChart,
-    details:
-      "We help you harness the power of your data through advanced analytics and visualization techniques. Our solutions enable you to make data-driven decisions and gain valuable insights into your business operations.",
-    features: [
-      "Data Strategy and Architecture",
-      "Business Intelligence Solutions",
-      "Machine Learning and AI Integration",
-      "Custom Dashboards and Reporting",
-    ],
+    slug: "web-app-cloud",
+    name: "Web App Cloud Infra",
+    description: "Rearchitect and repurpose your old legacy data and custom applications and seamlessly move them to the cloud using our specialized, scalable Web Application Cloud Infrastructure solutions for all business types.",
+    icon: Cloud,
+  },
+  {
+    slug: "devops",
+    name: "DevOps & Automation",
+    description: "DevOps and automation are now the standard for seamlessly deploying applications across development and production environments. Adopting Agile methodology gives companies the edge in delivering new products to market.",
+    icon: RefreshCw,
+  },
+  {
+    slug: "offshore-teams",
+    name: "Offshore Teams",
+    description: "Reduced costs, gain access to a pool of expert and certified engineers. Use latest technology, start new projects, hire full-time employees and focus on your business growth with Edenic's offshore team services.",
+    icon: Users,
   },
 ]
 
-const ServiceCard = ({ service }: { service: Service }) => { 
+export default function Services() {
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Card className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105">
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <service.icon className="w-6 h-6 mr-2 text-primary" />
-              {service.title}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <CardDescription>{service.description}</CardDescription>
-          </CardContent>
-        </Card>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>{service.title}</DialogTitle>
-          <DialogDescription>{service.details}</DialogDescription>
-        </DialogHeader>
-        <div className="mt-4">
-          <h4 className="font-semibold mb-2">Key Features:</h4>
-          <ul className="list-disc pl-5 space-y-1">
-            {service.features.map((feature, index) => (
-              <li key={index}>{feature}</li>
-            ))}
-          </ul>
-        </div>
-      </DialogContent>
-    </Dialog>
-  )
-}
-
-const Services = () => {
-  return (
-    <section id="services" className="py-24 bg-secondary/50">
+    <section id="services" className="py-24 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-3xl font-bold text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          Our Services
-        </motion.h2>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Solutions & Services</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            At Edenic, we help businesses move all their IT systems , (web servers, databases, Microsoft enterprise applications), critical IT functions (disaster, backup, logging) hosting development tools, Kubernetes, and CI/CD pipelines to the cloud. We offer secure, flexible, cost-efficient, and scalable cloud solutions tailored to your unique requirements.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+          {services.map((service) => (
+            <div
+              key={service.name}
+              className="group relative bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
             >
-              <ServiceCard service={service} />
-            </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="p-8 relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">{service.name}</h3>
+                <p className="text-gray-600 mb-8 flex-grow">{service.description}</p>
+                <Button asChild className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl transition-all duration-300 group-hover:shadow-lg">
+                  <Link href={`/services/${service.slug}`} className="flex items-center justify-center gap-2">
+                    Explore More
+                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </Button>
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
   )
 }
-
-export default Services
 

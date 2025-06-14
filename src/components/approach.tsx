@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
+import ServiceCard from "./ServiceCard"
 
 const steps = [
   {
@@ -31,7 +32,7 @@ const Approach = () => {
     <section id="approach" className="py-24">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-3xl font-bold text-center mb-12"
+          className="text-3xl font-bold text-center mb-12 text-foreground"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -48,19 +49,15 @@ const Approach = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center mr-2">
-                      {index + 1}
-                    </span>
-                    {step.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{step.description}</CardDescription>
-                </CardContent>
-              </Card>
+              <ServiceCard
+                icon={
+                  <span className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-lg font-bold">
+                    {index + 1}
+                  </span>
+                }
+                title={step.title}
+                description={step.description}
+              />
             </motion.div>
           ))}
         </div>

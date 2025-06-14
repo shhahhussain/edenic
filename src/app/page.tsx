@@ -1,18 +1,21 @@
 import Hero from "../components/hero"
+import PromoBanner from "../components/promo-banner"
+import CloudFacts from "../components/cloud-facts"
 import Services from "../components/services"
-import Approach from "../components/approach"
-import Testimonials from "../components/testimonials"
-import CaseStudies from "../components/case-studies"
+import Solutions from "../components/solutions"
+import Certifications from "../components/certifications"
 import Contact from "../components/contact"
+import ServiceCard from "../components/ServiceCard"
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main>
       <Hero />
+      <PromoBanner />
+      <CloudFacts />
       <Services />
-      <Approach />
-      <Testimonials />
-      <CaseStudies />
+      {/* <Solutions /> */}
+      <Certifications />
       <Contact />
     </main>
   )

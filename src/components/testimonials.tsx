@@ -1,84 +1,43 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Card, CardContent, CardFooter } from "./ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-
 const testimonials = [
-    {
-        quote: "EDENIC transformed our development process. Their DevOps solutions have significantly improved our deployment speed and reliability.",
-        author: "Jane Doe",
-        title: "CTO, Tech Innovators Inc.",
-        avatar: "/placeholder.svg?height=40&width=40",
-    },
-    {
-        quote: "The custom software EDENIC developed for us has been a game-changer. It's intuitive, efficient, and scales with our growing needs.",
-        author: "John Smith",
-        title: "CEO, Global Solutions Ltd.",
-        avatar: "/placeholder.svg?height=40&width=40",
-    },
-    {
-        quote: "EDENIC's cloud migration services were flawless. They ensured a smooth transition with zero downtime. Impressive!",
-        author: "Emily Johnson",
-        title: "Head of IT, CloudFirst Corp.",
-        avatar: "/placeholder.svg?height=40&width=40",
-    },
+  {
+    name: "Apporto",
+    title: "CTO",
+    quote: "Worked with Edenic as contractors for over a year now. Their expertise, dedication to quality, and commitment to well-researched solutions have been outstanding. They are honest and professional in their approach. We only had one minor billing issue due to travel delays, but they quickly corrected it and ensured it never happened again. Overall, a reliable and skilled team.",
+  },
+  {
+    name: "Sentinel AI",
+    title: "CEO",
+    quote: "Working with the Edenic team has been a great experience. This is our second project with them, and they continue to impress us with their deep knowledge. From infrastructure setup to CI/CD pipelines, they have helped us scale our cloud infrastructure effectively. They don't just execute tasks—they also advise on best practices and optimal solutions, ensuring long-term success.",
+  },
 ];
 
-const Testimonials = () => {
-    return (
-        <section className="py-24 bg-secondary/50">
-            <div className="container mx-auto px-4">
-                <motion.h2
-                    className="text-3xl font-bold text-center mb-12"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                >
-                    What Our Clients Say
-                </motion.h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {testimonials.map((testimonial, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                        >
-                            <Card>
-                                <CardContent className="pt-6">
-                                    <p className="text-lg mb-4">
-                                        &ldquo;{testimonial.quote}&rdquo;
-                                    </p>
-                                </CardContent>
-                                <CardFooter className="flex items-center">
-                                    <Avatar className="mr-4">
-                                        <AvatarImage
-                                            src={testimonial.avatar}
-                                            alt={testimonial.author}
-                                        />
-                                        <AvatarFallback>
-                                            {testimonial.author[0]}
-                                        </AvatarFallback>
-                                    </Avatar>
-                                    <div>
-                                        <p className="font-semibold">
-                                            {testimonial.author}
-                                        </p>
-                                        <p className="text-sm text-muted-foreground">
-                                            {testimonial.title}
-                                        </p>
-                                    </div>
-                                </CardFooter>
-                            </Card>
-                        </motion.div>
-                    ))}
-                </div>
+export default function Testimonials() {
+  return (
+    <section className="py-24 bg-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
+          Client Testimonials
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="relative bg-white rounded-xl shadow-md p-8 border border-blue-200"
+            >
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold transform rotate-12">
+                99
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-1">
+                {testimonial.name}
+              </h3>
+              <p className="text-gray-600 mb-4">{testimonial.title}</p>
+              <p className="text-gray-700">{testimonial.quote}</p>
             </div>
-        </section>
-    );
-};
-
-export default Testimonials;
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

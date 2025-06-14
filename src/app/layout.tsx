@@ -1,32 +1,43 @@
-import type React from "react";
-import "./globals.css";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "../components/theme-provider";
-import Footer from "../components/footer";
-import Header from "../components/header";
-const inter = Inter({ subsets: ["latin"] });
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
+import { ThemeProvider } from "../components/theme-provider"
+import Footer from "../components/footer"
+import Header from "../components/header"
 
-export const metadata = {
+const inter = Inter({ subsets: ["latin"] })
+
+export const metadata: Metadata = {
   title: "Edenic",
-  description:
-    "Elevate your business with cutting-edge development and DevOps services from EDENIC.",
-  icons: [{ rel: "icon", url: "/favicon.svg" }],
-};
+  description: "Your trusted partner in cloud solutions",
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <Header />
           {children}
           <Footer />
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }
