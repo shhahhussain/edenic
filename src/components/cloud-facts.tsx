@@ -2,27 +2,28 @@
 
 import { motion } from "framer-motion";
 import { Cloud, Server, TrendingUp, Shield } from "lucide-react";
+import CircularGauge from "./CircularGauge";
 
 const CloudFacts = () => {
     const facts = [
         {
             icon: Server,
-            value: "81%",
+            value: 81,
             label: "say container orchestration (like Kubernetes) helped optimize resource usage and reduce IT costs."
         },
         {
             icon: Cloud,
-            value: "94%",
+            value: 94,
             label: "of enterprises use cloud services, with 67% of enterprise infrastructure now cloud-based."
         },
         {
             icon: TrendingUp,
-            value: "60%",
+            value: 60,
             label: "reduction in IT costs reported by companies after migrating to cloud infrastructure."
         },
         {
             icon: Shield,
-            value: "85%",
+            value: 85,
             label: "of organizations report improved security after moving to cloud platforms."
         }
     ];
@@ -58,16 +59,14 @@ const CloudFacts = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group"
+                            className={`group ${index % 2 === 0 ? 'bg-blue-950/5 dark:bg-blue-950/20' : 'bg-blue-950/10 dark:bg-blue-950/30'} rounded-2xl p-6 sm:p-8`}
                         >
-                            <div className="bg-card dark:bg-gray-800/50 rounded-2xl p-6 sm:p-8 shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-border dark:border-gray-700">
-                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-600 dark:bg-gray-700 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                                    <fact.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                                </div>
-                                <h3 className="text-2xl sm:text-3xl font-bold text-blue-600 dark:text-white mb-4">
-                                    {fact.value}
-                                </h3>
-                                <p className="text-muted-foreground dark:text-gray-300 text-sm sm:text-base">
+                            <div className="flex flex-col items-center text-center">
+                                <CircularGauge
+                                    value={fact.value}
+                                    icon={<fact.icon className="w-8 h-8" />}
+                                />
+                                <p className="mt-6 text-muted-foreground dark:text-gray-300 text-sm sm:text-base">
                                     {fact.label}
                                 </p>
                             </div>

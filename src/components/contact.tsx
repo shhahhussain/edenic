@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
-import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react"
+import { Phone, Mail, MapPin, Loader2 } from "lucide-react"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,16 +13,30 @@ export default function Contact() {
     email: "",
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSent, setIsSent] = useState(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prevData) => ({ ...prevData, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    setIsSent(false)
+
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+
     console.log("Form submitted:", formData)
+    setIsSubmitting(false)
+    setIsSent(true)
     setFormData({ name: "", email: "", message: "" })
+
+    // Reset "Sent!" message after a short delay
+    await new Promise((resolve) => setTimeout(resolve, 3000))
+    setIsSent(false)
   }
 
   return (
@@ -63,8 +77,9 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:border-primary dark:focus:border-blue-400 focus:ring-primary dark:focus:ring-blue-400"
+                      className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-400 focus:border-transparent"
                       placeholder="Your name"
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div>
@@ -77,8 +92,9 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:border-primary dark:focus:border-blue-400 focus:ring-primary dark:focus:ring-blue-400"
+                      className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-400 focus:border-transparent"
                       placeholder="your.email@example.com"
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div>
@@ -91,15 +107,26 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={4}
-                      className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:border-primary dark:focus:border-blue-400 focus:ring-primary dark:focus:ring-blue-400"
+                      className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-400 focus:border-transparent"
                       placeholder="Tell us about your project"
+                      disabled={isSubmitting}
                     />
                   </div>
                   <Button 
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 hover:from-blue-600 hover:to-blue-700 dark:hover:from-blue-700 dark:hover:to-blue-800 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 hover:from-blue-600 hover:to-blue-700 dark:hover:from-blue-700 dark:hover:to-blue-800 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+                    disabled={isSubmitting || isSent}
                   >
-                    Send Message
+                    {isSubmitting ? (
+                        <>
+                            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                            Sending...
+                        </>
+                    ) : isSent ? (
+                        "Sent!"
+                    ) : (
+                        "Send Message"
+                    )}
                   </Button>
                 </form>
               </div>
@@ -117,7 +144,7 @@ export default function Contact() {
                   Contact Information
                 </h3>
                 <div className="space-y-6">
-                  <div className="flex items-center space-x-4 p-4 bg-secondary dark:bg-gray-700/50 rounded-xl hover:bg-secondary/80 dark:hover:bg-gray-700/80 transition-colors duration-300">
+                  <div className="flex items-center space-x-4 p-4 bg-secondary dark:bg-gray-700/50 rounded-xl shadow-md transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                     <div className="w-12 h-12 bg-blue-600 dark:bg-gray-700 rounded-xl flex items-center justify-center">
                       <Phone className="w-6 h-6 text-white" />
                     </div>
@@ -126,7 +153,7 @@ export default function Contact() {
                       <p className="text-foreground dark:text-gray-100 font-medium">+1 (917) 732-2205</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4 p-4 bg-secondary dark:bg-gray-700/50 rounded-xl hover:bg-secondary/80 dark:hover:bg-gray-700/80 transition-colors duration-300">
+                  <div className="flex items-center space-x-4 p-4 bg-secondary dark:bg-gray-700/50 rounded-xl shadow-md transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                     <div className="w-12 h-12 bg-blue-600 dark:bg-gray-700 rounded-xl flex items-center justify-center">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
@@ -135,7 +162,7 @@ export default function Contact() {
                       <p className="text-foreground dark:text-gray-100 font-medium">contact@edenic.com</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4 p-4 bg-secondary dark:bg-gray-700/50 rounded-xl hover:bg-secondary/80 dark:hover:bg-gray-700/80 transition-colors duration-300">
+                  <div className="flex items-center space-x-4 p-4 bg-secondary dark:bg-gray-700/50 rounded-xl shadow-md transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                     <div className="w-12 h-12 bg-blue-600 dark:bg-gray-700 rounded-xl flex items-center justify-center">
                       <MapPin className="w-6 h-6 text-white" />
                     </div>

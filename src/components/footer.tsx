@@ -9,11 +9,21 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
+import FooterBackground from "./FooterBackground";
+import { useState, useEffect } from "react";
 
 const Footer = () => {
+  const [currentYear, setCurrentYear] = useState(2023); // Default to a recent year
+
+  useEffect(() => {
+    // This will only run on the client side
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
-    <footer className="bg-background dark:bg-gray-900 text-foreground dark:text-gray-100 py-12 sm:py-16">
-      <div className="container mx-auto px-4">
+    <footer className="relative bg-background dark:bg-gray-900 text-foreground dark:text-gray-100 py-12 sm:py-16 overflow-hidden">
+      <FooterBackground />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           <div>
             <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-blue-600 dark:text-white">
@@ -92,40 +102,48 @@ const Footer = () => {
               Follow Us
             </h3>
             <div className="flex space-x-4 sm:space-x-6">
-              <a
+              <motion.a
                 href="https://www.facebook.com/people/Edenic/61573554717921/"
-                className="text-muted-foreground dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
+                className="text-muted-foreground dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-300"
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                whileTap={{ scale: 0.9 }}
                 aria-label="Facebook"
               >
                 <Facebook className="h-6 w-6 sm:h-7 sm:w-7" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="#"
-                className="text-muted-foreground dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
+                className="text-muted-foreground dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-300"
+                whileHover={{ scale: 1.2, y: -2 }}
+                whileTap={{ scale: 0.9 }}
                 aria-label="Twitter"
               >
                 <Twitter className="h-6 w-6 sm:h-7 sm:w-7" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="#"
-                className="text-muted-foreground dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
+                className="text-muted-foreground dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-300"
+                whileHover={{ scale: 1.2, rotate: -10 }}
+                whileTap={{ scale: 0.9 }}
                 aria-label="GitHub"
               >
                 <Github className="h-6 w-6 sm:h-7 sm:w-7" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="#"
-                className="text-muted-foreground dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
+                className="text-muted-foreground dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors duration-300"
+                whileHover={{ scale: 1.2, x: 2 }}
+                whileTap={{ scale: 0.9 }}
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-6 w-6 sm:h-7 sm:w-7" />
-              </a>
+              </motion.a>
             </div>
           </div>
         </div>
         <div className="mt-12 sm:mt-16 border-t border-border dark:border-gray-700 pt-8 text-center">
           <p className="text-muted-foreground dark:text-gray-300 text-sm">
-            &copy; {new Date().getFullYear()} Edenic. All rights reserved.
+            &copy; {currentYear} Edenic. All rights reserved.
           </p>
         </div>
       </div>
