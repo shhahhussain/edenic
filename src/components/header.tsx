@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { MenuIcon, Moon, Sun } from "lucide-react"
+import { Moon, Sun } from "lucide-react"
 import { Button } from "./ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
 import { useTheme } from "next-themes"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from 'next/image'

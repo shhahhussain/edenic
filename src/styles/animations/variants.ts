@@ -9,14 +9,14 @@ export const pageVariants: Variants = {
     opacity: 0,
     transition: {
       duration: animationTokens.transitions.page.fadeOut.duration / 1000,
-      ease: animationTokens.transitions.page.fadeOut.ease
+      ease: 'linear'
     }
   },
   enter: {
     opacity: 1,
     transition: {
       duration: animationTokens.transitions.page.fadeIn.duration / 1000,
-      ease: animationTokens.transitions.page.fadeIn.ease
+      ease: 'linear'
     }
   }
 }
@@ -31,7 +31,7 @@ export const heroVariants: Variants = {
     opacity: 1,
     transition: {
       duration: animationTokens.transitions.hero.initialLoad.duration / 1000,
-      ease: animationTokens.transitions.hero.initialLoad.ease
+      ease: 'linear'
     }
   },
   bob: {
@@ -39,7 +39,7 @@ export const heroVariants: Variants = {
     rotate: [0, -5, 0],
     transition: {
       duration: animationTokens.transitions.hero.bob.duration / 1000,
-      ease: animationTokens.transitions.hero.bob.ease,
+      ease: 'linear',
       repeat: Infinity
     }
   }
@@ -55,7 +55,7 @@ export const headerVariants: Variants = {
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
     transition: {
       duration: animationTokens.transitions.header.scroll.duration / 1000,
-      ease: animationTokens.transitions.header.scroll.ease
+      ease: 'linear'
     }
   }
 }
@@ -68,21 +68,21 @@ export const buttonVariants: Variants = {
     scale: 1.05,
     transition: {
       duration: animationTokens.transitions.button.hover.duration / 1000,
-      ease: animationTokens.transitions.button.hover.ease
+      ease: 'linear'
     }
   },
   tap: {
     scale: 0.97,
     transition: {
       duration: animationTokens.transitions.button.press.duration / 1000,
-      ease: animationTokens.transitions.button.press.ease
+      ease: 'linear'
     }
   },
   focus: {
     boxShadow: '0 0 0 2px rgba(66, 153, 225, 0.6)',
     transition: {
       duration: animationTokens.transitions.button.focus.duration / 1000,
-      ease: animationTokens.transitions.button.focus.ease
+      ease: 'linear'
     }
   }
 }
@@ -97,14 +97,14 @@ export const cardVariants: Variants = {
     y: 0,
     transition: {
       duration: animationTokens.transitions.card.scroll.duration / 1000,
-      ease: animationTokens.transitions.card.scroll.ease
+      ease: 'linear'
     }
   },
   hover: {
     y: -5,
     transition: {
       duration: animationTokens.transitions.card.hover.duration / 1000,
-      ease: animationTokens.transitions.card.hover.ease
+      ease: 'linear'
     }
   }
 }
@@ -117,7 +117,7 @@ export const linkVariants: Variants = {
     width: '100%',
     transition: {
       duration: animationTokens.transitions.link.hover.duration / 1000,
-      ease: animationTokens.transitions.link.hover.ease
+      ease: 'linear'
     }
   }
 }
@@ -132,7 +132,7 @@ export const iconVariants: Variants = {
     rotate: 0,
     transition: {
       duration: animationTokens.transitions.icon.entry.duration / 1000,
-      ease: animationTokens.transitions.icon.entry.ease
+      ease: 'linear'
     }
   }
 }
@@ -145,7 +145,7 @@ export const particleVariants: Variants = {
     opacity: [0.3, 0.6, 0.3],
     transition: {
       duration: animationTokens.transitions.particle.drift.duration / 1000,
-      ease: animationTokens.transitions.particle.drift.ease,
+      ease: 'linear',
       repeat: Infinity
     }
   },
@@ -153,7 +153,7 @@ export const particleVariants: Variants = {
     filter: 'brightness(1.2)',
     transition: {
       duration: animationTokens.transitions.particle.hover.duration / 1000,
-      ease: animationTokens.transitions.particle.hover.ease
+      ease: 'linear'
     }
   }
 }
@@ -168,14 +168,14 @@ export const loaderVariants: Variants = {
     scale: 1,
     transition: {
       duration: animationTokens.transitions.loader.dot.duration / 1000,
-      ease: animationTokens.transitions.loader.dot.ease
+      ease: 'linear'
     }
   },
   exit: {
     opacity: 0,
     transition: {
       duration: animationTokens.transitions.loader.hide.duration / 1000,
-      ease: animationTokens.transitions.loader.hide.ease
+      ease: 'linear'
     }
   }
 } 

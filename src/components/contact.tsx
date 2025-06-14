@@ -51,7 +51,7 @@ export default function Contact() {
             className="text-center mb-12 sm:mb-16"
           >
             <h2 className="text-2xl sm:text-4xl font-bold text-blue-600 dark:text-white mb-4">
-              Let's Connect
+              Let&apos;s Connect
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto">
               Ready to transform your business with cloud solutions? Get in touch with us today.

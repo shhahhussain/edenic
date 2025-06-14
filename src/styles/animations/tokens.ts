@@ -1,8 +1,8 @@
 export const animationTokens = {
   easing: {
-    easePrimary: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
-    easeSecondary: 'cubic-bezier(0.0, 0.0, 0.2, 1)',
-    easeOut: 'cubic-bezier(0.0, 0.0, 0.3, 1)'
+    easePrimary: 'linear',
+    easeSecondary: 'linear',
+    easeOut: 'linear'
   },
   duration: {
     short: 150,
@@ -14,31 +14,31 @@ export const animationTokens = {
     page: {
       fadeOut: {
         duration: 300,
-        ease: 'cubic-bezier(0.0, 0.0, 0.3, 1)'
+        ease: 'linear'
       },
       fadeIn: {
         duration: 300,
-        ease: 'cubic-bezier(0.0, 0.0, 0.3, 1)'
+        ease: 'linear'
       },
       layout: {
         duration: 400,
-        ease: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+        ease: 'linear'
       }
     },
     hero: {
       initialLoad: {
         duration: 500,
-        ease: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+        ease: 'linear'
       },
       bob: {
         duration: 8000,
-        ease: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+        ease: 'linear'
       }
     },
     header: {
       scroll: {
         duration: 400,
-        ease: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+        ease: 'linear'
       },
       mobileMenu: {
         stagger: 200
@@ -47,38 +47,38 @@ export const animationTokens = {
     button: {
       hover: {
         duration: 150,
-        ease: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+        ease: 'linear'
       },
       press: {
         duration: 100,
-        ease: 'cubic-bezier(0.0, 0.0, 0.2, 1)'
+        ease: 'linear'
       },
       focus: {
         duration: 600,
-        ease: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+        ease: 'linear'
       }
     },
     card: {
       scroll: {
         duration: 400,
-        ease: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
+        ease: 'linear',
         stagger: 100
       },
       hover: {
         duration: 200,
-        ease: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+        ease: 'linear'
       }
     },
     link: {
       hover: {
         duration: 250,
-        ease: 'cubic-bezier(0.0, 0.0, 0.3, 1)'
+        ease: 'linear'
       }
     },
     icon: {
       entry: {
         duration: 300,
-        ease: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+        ease: 'linear'
       }
     },
     particle: {
@@ -88,7 +88,7 @@ export const animationTokens = {
       },
       hover: {
         duration: 300,
-        ease: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+        ease: 'linear'
       }
     },
     loader: {
@@ -99,7 +99,7 @@ export const animationTokens = {
       },
       hide: {
         duration: 300,
-        ease: 'cubic-bezier(0.0, 0.0, 0.3, 1)'
+        ease: 'linear'
       }
     }
   }

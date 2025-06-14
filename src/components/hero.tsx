@@ -2,64 +2,18 @@
 
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { motion, useScroll, useTransform, useAnimation, MotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { CloudSilhouette } from "./shared/CloudSilhouette";
 import { VideoBackground } from "./VideoBackground";
-
-interface BinaryParticleProps {
-  path: string;
-  delay?: number;
-}
-
-const BinaryParticle = ({ path, delay = 0 }: BinaryParticleProps) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, pathOffset: 0 }}
-      animate={{
-        opacity: [0, 1, 0],
-        pathOffset: 1,
-      }}
-      transition={{
-        duration: 3,
-        delay,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-      className="absolute w-1 h-1 bg-blue-400 dark:bg-blue-300 rounded-full filter blur-[1px]"
-      style={{
-        offsetPath: `path("${path}")`,
-        offsetDistance: "0%",
-      }}
-    />
-  );
-};
 
 export default function Hero() {
   const containerRef = useRef(null);
   const [isMounted, setIsMounted] = useState(false);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
-
-  const particlePaths = [
-    "M 100,100 C 200,50 300,150 400,100",
-    "M 200,200 C 300,150 400,250 500,200",
-    "M 150,300 C 250,250 350,350 450,300",
-  ];
-
-  const earthImages = {
-    large: "https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=2070&auto=format&fit=crop",
-    small1: "https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?q=80&w=2070&auto=format&fit=crop",
-    small2: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=2069&auto=format&fit=crop"
-  };
 
   if (!isMounted) {
     return (
