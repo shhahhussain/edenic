@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
+import ServiceCard from "./ServiceCard"
 
 const steps = [
   {
@@ -28,10 +29,10 @@ const steps = [
 
 const Approach = () => {
   return (
-    <section id="approach" className="py-24">
+    <section id="approach" className="py-16 sm:py-24 bg-background dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-3xl font-bold text-center mb-12"
+          className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-blue-600 dark:text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -39,7 +40,7 @@ const Approach = () => {
         >
           Our Approach
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -48,19 +49,15 @@ const Approach = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center mr-2">
-                      {index + 1}
-                    </span>
-                    {step.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{step.description}</CardDescription>
-                </CardContent>
-              </Card>
+              <ServiceCard
+                icon={
+                  <span className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-600 dark:to-purple-600 text-white flex items-center justify-center text-lg font-bold">
+                    {index + 1}
+                  </span>
+                }
+                title={step.title}
+                description={step.description}
+              />
             </motion.div>
           ))}
         </div>
