@@ -1,4 +1,4 @@
-import { motion, useSpring, useTransform, animate } from "framer-motion";
+import { motion, useSpring, useTransform, animate, AnimationPlaybackControls } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 
 interface CircularGaugeProps {
@@ -14,7 +14,7 @@ const CircularGauge = ({ value, size = 120, strokeWidth = 8, icon }: CircularGau
     const radius = (size - strokeWidth) / 2;
     const circumference = radius * 2 * Math.PI;
     const progress = useSpring(0, { stiffness: 50, damping: 20 });
-    const controls = useRef(null);
+    const controls = useRef<AnimationPlaybackControls | null>(null);
 
     useEffect(() => {
         if (isInView) {

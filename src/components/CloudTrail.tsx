@@ -14,7 +14,6 @@ export const CloudTrail = () => {
 
     const particles: Particle[] = []
     const particleCount = 50
-    const animationDuration = 20000
 
     class Particle {
       x: number
@@ -22,8 +21,10 @@ export const CloudTrail = () => {
       size: number
       speedX: number
       opacity: number
+      canvas: HTMLCanvasElement
 
-      constructor() {
+      constructor(canvas: HTMLCanvasElement) {
+        this.canvas = canvas
         this.x = Math.random() * canvas.width
         this.y = Math.random() * canvas.height
         this.size = Math.random() * 2 + 1
@@ -33,9 +34,9 @@ export const CloudTrail = () => {
 
       update() {
         this.x += this.speedX
-        if (this.x > canvas.width) {
+        if (this.x > this.canvas.width) {
           this.x = 0
-          this.y = Math.random() * canvas.height
+          this.y = Math.random() * this.canvas.height
         }
       }
 
@@ -54,7 +55,7 @@ export const CloudTrail = () => {
       canvas.height = canvas.offsetHeight
 
       for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle())
+        particles.push(new Particle(canvas))
       }
     }
 

@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
     unoptimized: true, 
     domains: ['images.unsplash.com'],
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/edenic/' : '', 
 };
 
 export default nextConfig;

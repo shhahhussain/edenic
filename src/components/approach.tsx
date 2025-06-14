@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
 import ServiceCard from "./ServiceCard"
 
 const steps = [

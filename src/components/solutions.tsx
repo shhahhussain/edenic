@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Cloud, Shield, Zap, Users, BarChart, Server } from "lucide-react"
 
 const solutions = [
