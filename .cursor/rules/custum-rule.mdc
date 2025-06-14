@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+rules:
+  - "Write strict TypeScript, no 'any'."
+  - "Be concise. Prioritize technical solutions."
+  - "Always suggest optimizations and trade-offs."
+  - "Explain changes with technical depth."

@@ -50,7 +50,7 @@ const awardsAndPartnerships = [
 
 export default function Certifications() {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,10 +59,10 @@ export default function Certifications() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent mb-4">
             Our Awards and Partnerships
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Recognized for excellence in cloud solutions and trusted by industry leaders
           </p>
         </motion.div>
@@ -79,7 +79,7 @@ export default function Certifications() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-white rounded-2xl shadow-xl p-8 transform hover:-translate-y-1 transition-all duration-300">
+                <div className="bg-card rounded-2xl shadow-xl p-8 transform hover:-translate-y-1 transition-all duration-300 border border-border">
                   <div className="relative h-48 mb-6 rounded-xl overflow-hidden">
                     <Image
                       src={award.image}
@@ -88,8 +88,8 @@ export default function Certifications() {
                       className="object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{award.title}</h3>
-                  <p className="text-gray-600">{award.description}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-3">{award.title}</h3>
+                  <p className="text-muted-foreground">{award.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -107,7 +107,7 @@ export default function Certifications() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-white rounded-2xl p-6 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                <div className="bg-card rounded-2xl p-6 shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-border">
                   <div className="relative h-32 mb-4 rounded-xl overflow-hidden">
                     <Image
                       src={partner.image}
@@ -116,7 +116,7 @@ export default function Certifications() {
                       className="object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 text-center">{partner.title}</h3>
+                  <h3 className="text-lg font-semibold text-foreground text-center">{partner.title}</h3>
                 </div>
               </motion.div>
             ))}

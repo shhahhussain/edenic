@@ -28,11 +28,11 @@ const CloudFacts = () => {
     ];
 
     return (
-        <section id="cloud-facts" className="py-24 bg-gradient-to-b from-white to-gray-50">
+        <section id="cloud-facts" className="py-24 bg-background">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <motion.h2
-                        className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4"
+                        className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent mb-4"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -41,7 +41,7 @@ const CloudFacts = () => {
                         Why Businesses Move to the Cloud & Kubernetes
                     </motion.h2>
                     <motion.p
-                        className="text-xl text-gray-600 max-w-3xl mx-auto"
+                        className="text-xl text-muted-foreground max-w-3xl mx-auto"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -60,14 +60,14 @@ const CloudFacts = () => {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="group"
                         >
-                            <div className="bg-white rounded-2xl p-8 shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                            <div className="bg-card rounded-2xl p-8 shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-border">
                                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
                                     <fact.icon className="w-8 h-8 text-white" />
                                 </div>
-                                <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+                                <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent mb-4">
                                     {fact.value}
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-muted-foreground">
                                     {fact.label}
                                 </p>
                             </div>

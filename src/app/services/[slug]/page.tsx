@@ -158,18 +158,18 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-20 h-20 bg-gradient-to-br from-primary to-blue-600 rounded-2xl flex items-center justify-center mb-6">
                 <service.icon className="w-10 h-10 text-white" />
               </div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">{service.name}</h1>
-              <p className="text-xl text-gray-600">{service.description}</p>
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent mb-4">{service.name}</h1>
+              <p className="text-xl text-muted-foreground">{service.description}</p>
             </div>
-            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 ring-1 ring-border">
               <Image
                 src={service.image}
                 alt={service.imageAlt}
@@ -181,39 +181,39 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           </div>
 
           <div className="space-y-8">
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Overview</h2>
-              <p className="text-gray-600">{service.details}</p>
+            <div className="bg-card rounded-2xl p-8 shadow-xl border border-border">
+              <h2 className="text-2xl font-bold text-foreground mb-4">Overview</h2>
+              <p className="text-muted-foreground">{service.details}</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-2xl p-8 shadow-xl transform hover:-translate-y-1 transition-transform duration-300">
-                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                  <svg className="w-6 h-6 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-card rounded-2xl p-8 shadow-xl transform hover:-translate-y-1 transition-transform duration-300 border border-border">
+                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center">
+                  <svg className="w-6 h-6 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   Key Features
                 </h3>
                 <ul className="space-y-4">
                   {service.features.map((feature, index) => (
-                    <li key={index} className="flex items-center text-gray-600">
-                      <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-3" />
+                    <li key={index} className="flex items-center text-muted-foreground">
+                      <div className="w-2 h-2 bg-gradient-to-r from-primary to-blue-600 rounded-full mr-3" />
                       {feature}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="bg-white rounded-2xl p-8 shadow-xl transform hover:-translate-y-1 transition-transform duration-300">
-                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                  <svg className="w-6 h-6 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-card rounded-2xl p-8 shadow-xl transform hover:-translate-y-1 transition-transform duration-300 border border-border">
+                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center">
+                  <svg className="w-6 h-6 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                   Benefits
                 </h3>
                 <ul className="space-y-4">
                   {service.benefits.map((benefit, index) => (
-                    <li key={index} className="flex items-center text-gray-600">
-                      <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mr-3" />
+                    <li key={index} className="flex items-center text-muted-foreground">
+                      <div className="w-2 h-2 bg-gradient-to-r from-primary to-blue-600 rounded-full mr-3" />
                       {benefit}
                     </li>
                   ))}
@@ -221,10 +221,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white shadow-xl">
+            <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-8 text-center text-white shadow-xl">
               <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
               <p className="mb-6 opacity-90">Transform your business with our expert cloud solutions</p>
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button className="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
                 Contact Us
               </Button>
             </div>

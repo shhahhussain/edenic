@@ -6,7 +6,7 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => {
   return (
-    <div className="bg-card rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+    <div className="bg-card rounded-lg shadow-md p-6 flex flex-col items-center text-center border border-border">
       <div className="text-primary text-4xl mb-4">
         {icon}
       </div>
