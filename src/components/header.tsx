@@ -10,11 +10,10 @@ import Image from 'next/image'
 import { CloudTrail } from './CloudTrail'
 
 const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Services', href: '/services' },
-  { label: 'About', href: '/about' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/contact' }
+  { label: 'Home', href: '#home' },
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#certifications' },
+  { label: 'Contact', href: '#contact' }
 ]
 
 export const Header = () => {
@@ -31,6 +30,24 @@ export const Header = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const headerOffset = 80; // height of the header
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }
+  };
 
   if (!mounted) {
     return null
@@ -52,7 +69,7 @@ export const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0">
-              <Link href="/" className="flex items-center">
+              <Link href="#home" className="flex items-center" onClick={(e) => handleLinkClick(e, "#home")}>
                 <div className="relative w-40 h-10">
                   <Image
                     src="/logo.png"
@@ -75,6 +92,7 @@ export const Header = () => {
                 >
                   <Link
                     href={item.href}
+                    onClick={(e) => handleLinkClick(e, item.href)}
                     className="relative text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 group"
                   >
                     {item.label}
@@ -87,21 +105,27 @@ export const Header = () => {
                   </Link>
                 </motion.div>
               ))}
-              <motion.button
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.7 }}
                 whileHover={{ scale: 1.05 }}
-                className="relative px-6 py-2 rounded-full bg-blue-600 text-white font-medium overflow-hidden group hover:bg-blue-700 transition-colors dark:bg-blue-600 dark:hover:bg-blue-700 dark:text-white"
+                className="relative"
               >
-                <span className="relative z-10">Get Started</span>
-                <motion.div
-                  className="absolute inset-0 bg-white/10 dark:bg-gray-100/10"
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 2 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.button>
+                <Link href="#contact" onClick={(e) => handleLinkClick(e, "#contact")} passHref>
+                  <motion.div
+                    className="px-6 py-2 rounded-full bg-blue-600 text-white font-medium overflow-hidden group hover:bg-blue-700 transition-colors dark:bg-blue-600 dark:hover:bg-blue-700 dark:text-white"
+                  >
+                    <span className="relative z-10">Get Started</span>
+                    <motion.div
+                      className="absolute inset-0 bg-white/10 dark:bg-gray-100/10"
+                      initial={{ scale: 0 }}
+                      whileHover={{ scale: 2 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </motion.div>
+                </Link>
+              </motion.div>
               <Button 
                 variant="ghost" 
                 size="icon" 
@@ -174,14 +198,19 @@ export const Header = () => {
                     key={item.href}
                     href={item.href}
                     className="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      handleLinkClick(e, item.href);
+                      setIsMobileMenuOpen(false);
+                    }}
                   >
                     {item.label}
                   </Link>
                 ))}
-                <button className="px-6 py-2 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors dark:bg-blue-600 dark:hover:bg-blue-700">
-                  Get Started
-                </button>
+                <Link href="#contact" onClick={(e) => { handleLinkClick(e, "#contact"); setIsMobileMenuOpen(false); }} className="w-full">
+                  <button className="w-full px-6 py-2 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors dark:bg-blue-600 dark:hover:bg-blue-700">
+                    Get Started
+                  </button>
+                </Link>
               </div>
             </div>
           </motion.div>

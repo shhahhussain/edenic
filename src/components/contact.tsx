@@ -1,42 +1,48 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import { Phone, Mail, MapPin, Loader2 } from "lucide-react"
+import emailjs from "@emailjs/browser"
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
+  const form = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSent, setIsSent] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prevData) => ({ ...prevData, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    if (!form.current) return;
+
     setIsSubmitting(true)
     setIsSent(false)
+    setError(null)
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    const serviceID = "YOUR_SERVICE_ID";
+    const templateID = "YOUR_TEMPLATE_ID";
+    const publicKey = "YOUR_PUBLIC_KEY";
 
-    console.log("Form submitted:", formData)
-    setIsSubmitting(false)
-    setIsSent(true)
-    setFormData({ name: "", email: "", message: "" })
-
-    // Reset "Sent!" message after a short delay
-    await new Promise((resolve) => setTimeout(resolve, 3000))
-    setIsSent(false)
+    emailjs
+      .sendForm(serviceID, templateID, form.current, {
+        publicKey: publicKey,
+      })
+      .then(
+        () => {
+          setIsSent(true);
+          form.current?.reset();
+        },
+        (error) => {
+          setError("Failed to send the message. Please try again.");
+          console.log("FAILED...", error.text);
+        }
+      )
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   }
 
   return (
@@ -66,7 +72,7 @@ export default function Contact() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <div className="bg-card dark:bg-gray-800/50 rounded-2xl shadow-xl p-6 sm:p-8 transform hover:-translate-y-1 transition-all duration-300 border border-border dark:border-gray-700">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground dark:text-gray-100 mb-1">
                       Name
@@ -74,12 +80,11 @@ export default function Contact() {
                     <Input
                       type="text"
                       id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
+                      name="user_name"
                       className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-400 focus:border-transparent"
                       placeholder="Your name"
                       disabled={isSubmitting}
+                      required
                     />
                   </div>
                   <div>
@@ -89,12 +94,11 @@ export default function Contact() {
                     <Input
                       type="email"
                       id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
+                      name="user_email"
                       className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-400 focus:border-transparent"
                       placeholder="your.email@example.com"
                       disabled={isSubmitting}
+                      required
                     />
                   </div>
                   <div>
@@ -104,12 +108,11 @@ export default function Contact() {
                     <Textarea
                       id="message"
                       name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
                       rows={4}
                       className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-400 focus:border-transparent"
                       placeholder="Tell us about your project"
                       disabled={isSubmitting}
+                      required
                     />
                   </div>
                   <Button 
@@ -128,6 +131,7 @@ export default function Contact() {
                         "Send Message"
                     )}
                   </Button>
+                  {error && <p className="text-red-500 text-sm mt-4 text-center">{error}</p>}
                 </form>
               </div>
             </motion.div>
@@ -150,7 +154,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground dark:text-gray-400">Phone</p>
-                      <p className="text-foreground dark:text-gray-100 font-medium">+1 (917) 732-2205</p>
+                      <p className="text-foreground dark:text-gray-100 font-medium">+923110444411</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4 p-4 bg-secondary dark:bg-gray-700/50 rounded-xl shadow-md transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
@@ -168,7 +172,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground dark:text-gray-400">Address</p>
-                      <p className="text-foreground dark:text-gray-100 font-medium">8 The Green #21172 Dover, DE, 19901, USA</p>
+                      <p className="text-foreground dark:text-gray-100 font-medium">Saddar Road Peshawar Deans Plaza</p>
                     </div>
                   </div>
                 </div>
