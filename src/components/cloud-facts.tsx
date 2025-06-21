@@ -9,22 +9,22 @@ const CloudFacts = () => {
         {
             icon: Server,
             value: 81,
-            label: "say container orchestration (like Kubernetes) helped optimize resource usage and reduce IT costs."
+            label: "report optimized resource usage and reduced IT costs with container orchestration, including Kubernetes."
         },
         {
             icon: Cloud,
             value: 94,
-            label: "of enterprises use cloud services, with 67% of enterprise infrastructure now cloud-based."
+            label: "of enterprises leverage cloud services, with 67% of their infrastructure now cloud-based."
         },
         {
             icon: TrendingUp,
             value: 60,
-            label: "reduction in IT costs reported by companies after migrating to cloud infrastructure."
+            label: "reduction in IT costs achieved by companies post-cloud migration."
         },
         {
             icon: Shield,
             value: 85,
-            label: "of organizations report improved security after moving to cloud platforms."
+            label: "of organizations experience enhanced security after transitioning to cloud platforms."
         }
     ];
 

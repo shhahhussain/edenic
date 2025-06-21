@@ -2,49 +2,40 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
-const awardsAndPartnerships = [
+const certifications = [
   {
-    type: "award",
-    image: "https://images.unsplash.com/photo-1606159068539-43f36b99d1b3?q=80&w=2070&auto=format&fit=crop",
-    description: "Growing faster than Amazon, Google, and ServiceNow",
-    title: "Fastest Growing Tech Company"
+    name: "Cloud Quest: Practitioner",
+    issuer: "Amazon Web Services",
+    logo: "/certificates/AWS Cloud Quest- Cloud Practitioner .png",
   },
   {
-    type: "award",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-    description: "Recognized for reliability, trustworthiness, and excellence in delivering value",
-    title: "Most Reliable Company"
+    name: "Cloud Practitioner",
+    issuer: "Amazon Web Services",
+    logo: "/certificates/AWS Certified Cloud Practitioner .png",
   },
   {
-    type: "partner",
-    image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=2074&auto=format&fit=crop",
-    title: "Kubernetes Certified"
+    name: "Solutions Architect Associate",
+    issuer: "Amazon Web Services",
+    logo: "/certificates/AWS Certified Solutions Architect – Associate .png",
   },
   {
-    type: "partner",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
-    title: "AWS Advanced Consulting Partner"
+    name: "Solutions Architect Professional",
+    issuer: "Amazon Web Services",
+    logo: "/certificates/AWS Certified Solutions Architect – Professional .png",
   },
   {
-    type: "partner",
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop",
-    title: "Microsoft Gold Partner"
-  },
-  {
-    type: "partner",
-    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop",
-    title: "Google Cloud Partner"
-  },
-  {
-    type: "partner",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
-    title: "ISO 9001 Certified"
-  },
-  {
-    type: "partner",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-    title: "ISO 27001 Certified"
+    name: "Certified Kubernetes Administrator",
+    issuer: "Cloud Native Computing Foundation",
+    logo: "/certificates/CKA- Certified Kubernetes Administrator .png",
   },
 ];
 
@@ -60,68 +51,64 @@ export default function Certifications() {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-2xl sm:text-4xl font-bold text-blue-600 dark:text-white mb-4">
-            Our Awards and Partnerships
+            Our Certified Talent
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto">
-            Recognized for excellence in cloud solutions and trusted by industry leaders
+            Our team&apos;s collective expertise is backed by top-tier industry
+            certifications. We&apos;re committed to continuous learning to deliver
+            cutting-edge solutions.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
-          {awardsAndPartnerships
-            .filter((item) => item.type === "award")
-            .map((award, index) => (
-              <motion.div
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 3000,
+              stopOnInteraction: true,
+            }),
+          ]}
+          className="w-full max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto"
+        >
+          <CarouselContent>
+            {certifications.map((cert, index) => (
+              <CarouselItem
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
+                className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
               >
-                <div className="bg-card dark:bg-gray-800/50 rounded-2xl shadow-xl p-6 sm:p-8 transform hover:-translate-y-1 transition-all duration-300 border border-border dark:border-gray-700">
-                  <div className="relative h-40 sm:h-48 mb-6 rounded-xl overflow-hidden">
-                    <Image
-                      src={award.image}
-                      alt={award.title}
-                      fill
-                      className="object-cover transform group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground dark:text-gray-100 mb-3">{award.title}</h3>
-                  <p className="text-muted-foreground dark:text-gray-300 text-sm sm:text-base">{award.description}</p>
+                <div className="p-1 h-full">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="group h-full flex"
+                  >
+                    <div className="bg-card dark:bg-gray-800/50 rounded-2xl shadow-xl p-6 sm:p-8 transform hover:-translate-y-1 transition-all duration-300 border border-border dark:border-gray-700 h-full flex flex-col justify-between w-full">
+                      <div className="relative h-40 mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-blue-600/5 to-blue-600/10 dark:from-blue-400/5 dark:to-blue-400/10">
+                        <div className="absolute inset-0 flex items-center justify-center p-4">
+                          <Image
+                            src={cert.logo}
+                            alt={`${cert.issuer} logo`}
+                            width={200}
+                            height={120}
+                            className="object-contain transform group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.div>
+              </CarouselItem>
             ))}
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 items-center justify-center">
-          {awardsAndPartnerships
-            .filter((item) => item.type === "partner")
-            .map((partner, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="bg-card dark:bg-gray-800/50 rounded-2xl p-4 sm:p-6 shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-border dark:border-gray-700">
-                  <div className="relative h-24 sm:h-32 mb-4 rounded-xl overflow-hidden">
-                    <Image
-                      src={partner.image}
-                      alt={partner.title}
-                      fill
-                      className="object-cover transform group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <h3 className="text-sm sm:text-lg font-semibold text-foreground dark:text-gray-100 text-center">{partner.title}</h3>
-                </div>
-              </motion.div>
-            ))}
-        </div>
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
     </section>
   );
-} 
+}
