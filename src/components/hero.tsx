@@ -33,7 +33,7 @@ export default function Hero() {
   }
 
   return (
-    <div ref={containerRef} className="relative min-h-screen overflow-hidden bg-gradient-to-b from-white to-blue-950 dark:from-gray-950 dark:to-gray-800">
+    <div ref={containerRef} id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-b from-white to-blue-950 dark:from-gray-950 dark:to-gray-800">
       <div className="absolute inset-0 z-0">
         <VideoBackground 
           videoSrc="/videos/datacenter.mp4"
@@ -72,8 +72,8 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="mt-10 flex items-center gap-x-6 justify-center"
           >
-            <Button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 dark:from-blue-600 dark:to-blue-700 dark:hover:from-blue-700 dark:hover:to-blue-800 text-white px-6 py-3 rounded-md text-lg shadow-lg hover:shadow-xl transition-all duration-300">
-              Get Started
+            <Button asChild className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 dark:from-blue-600 dark:to-blue-700 dark:hover:from-blue-700 dark:hover:to-blue-800 text-white px-6 py-3 rounded-md text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <Link href="#contact">Get Started</Link>
             </Button>
             <Link
               href="#services"
