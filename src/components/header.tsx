@@ -53,7 +53,7 @@ export const Header = () => {
     // On other pages, let the Link component handle navigation.
   }
 
-  const handleMobileLinkClick = (href: string) => {
+  const handleMobileLinkClick = () => {
     setIsMobileMenuOpen(false)
     // We can't pass the event here, so we'll just navigate.
     // Smooth scroll on mobile for hash links can be revisited if needed.
@@ -208,13 +208,13 @@ export const Header = () => {
                     key={item.href}
                     href={item.href}
                     className="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    onClick={() => handleMobileLinkClick(item.href)}
+                    onClick={() => handleMobileLinkClick()}
                   >
                     {item.label}
                   </Link>
                 ))}
                 <Link href="/#contact" passHref>
-                   <Button className="w-full" onClick={() => handleMobileLinkClick('/#contact')}>Get Started</Button>
+                   <Button className="w-full" onClick={() => handleMobileLinkClick()}>Get Started</Button>
                 </Link>
               </div>
             </div>
