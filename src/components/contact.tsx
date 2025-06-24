@@ -163,7 +163,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground dark:text-gray-400">Email</p>
-                      <p className="text-foreground dark:text-gray-100 font-medium">contact@edenic.com</p>
+                      <a href="mailto:hello@edenic.com" className="text-foreground dark:text-gray-100 font-medium">hello@edenic.com</a>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4 p-4 bg-secondary dark:bg-gray-700/50 rounded-xl shadow-md transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
