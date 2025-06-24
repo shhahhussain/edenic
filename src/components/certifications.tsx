@@ -77,7 +77,7 @@ export default function Certifications() {
             {certifications.map((cert, index) => (
               <CarouselItem
                 key={index}
-                className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                className="basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
               >
                 <div className="p-1 h-full">
                   <motion.div
@@ -105,8 +105,8 @@ export default function Certifications() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="-left-2 sm:-left-4 md:-left-6" />
+          <CarouselNext className="-right-2 sm:-right-4 md:-right-6" />
         </Carousel>
       </div>
     </section>
