@@ -15,7 +15,7 @@ const navItems = [
   { label: 'Services', href: '/#services' },
   { label: 'About', href: '/#certifications' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export const Header = () => {
@@ -122,11 +122,11 @@ export const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 className="relative"
               >
-                <Link href="/#contact" onClick={(e) => handleLinkClick(e, "/#contact")} passHref>
+                <Link href="/pricing" passHref>
                   <motion.div
                     className="px-6 py-2 rounded-full bg-blue-600 text-white font-medium overflow-hidden group hover:bg-blue-700 transition-colors dark:bg-blue-600 dark:hover:bg-blue-700 dark:text-white"
                   >
-                    <span className="relative z-10">Get Started</span>
+                    <span className="relative z-10">Get a Quote</span>
                     <motion.div
                       className="absolute inset-0 bg-white/10 dark:bg-gray-100/10"
                       initial={{ scale: 0 }}
@@ -213,8 +213,8 @@ export const Header = () => {
                     {item.label}
                   </Link>
                 ))}
-                <Link href="/#contact" passHref>
-                   <Button className="w-full" onClick={() => handleMobileLinkClick()}>Get Started</Button>
+                <Link href="/pricing" passHref>
+                   <Button className="w-full" onClick={() => handleMobileLinkClick()}>Get a Quote</Button>
                 </Link>
               </div>
             </div>
