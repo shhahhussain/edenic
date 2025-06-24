@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Phone, Mail, MapPin, Loader2, Clock, Shield, HelpCircle, Building, User } from "lucide-react"
+import { Phone, Mail, MapPin, Loader2, Clock, Shield } from "lucide-react"
 import emailjs from "@emailjs/browser"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -254,7 +254,3 @@ const ConsultationCard = ({ title, description, duration, price, href }: { title
         </CardFooter>
     </Card>
 )
-
-const ui = {
-    Accordion, AccordionContent, AccordionItem, AccordionTrigger
-}
