@@ -20,7 +20,7 @@ export default function RootLayout({
           content="Transform Your Business with Cloud Solutions. We help businesses move their IT systems to the cloud, ensuring secure, flexible, and cost-efficient solutions tailored to your unique requirements."
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} flex flex-col min-h-screen`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -29,7 +29,7 @@ export default function RootLayout({
         >
           <Header />
           
-          <main>{children}</main>
+          <main className="flex-grow pt-20">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
