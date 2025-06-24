@@ -142,9 +142,9 @@ export default function DetailedContactPage() {
             <div>
               <h3 className="text-3xl font-bold mb-6 text-foreground">Schedule a Consultation</h3>
               <div className="space-y-6">
-                <ConsultationCard title="Enterprise Consultation" description="Strategic planning for large-scale cloud transformation" duration="60 minutes" price="Free" />
-                <ConsultationCard title="Technical Deep Dive" description="Architecture review and optimization recommendations" duration="90 minutes" price="$299" />
-                <ConsultationCard title="Quick Assessment" description="Rapid evaluation of your current infrastructure" duration="30 minutes" price="Free" />
+                <ConsultationCard title="Enterprise Consultation" description="Strategic planning for large-scale cloud transformation" duration="60 minutes" price="Free" href="https://calendly.com/shhahhussain/h" />
+                <ConsultationCard title="Technical Deep Dive" description="Architecture review and optimization recommendations" duration="90 minutes" price="$299" href="https://calendly.com/shhahhussain/90-minute-consultation" />
+                <ConsultationCard title="Quick Assessment" description="Rapid evaluation of your current infrastructure" duration="30 minutes" price="Free" href="https://calendly.com/shhahhussain/h" />
               </div>
             </div>
 
@@ -234,7 +234,7 @@ const InputWithLabel = ({ id, name, label, type = "text", placeholder, disabled,
     </div>
 )
 
-const ConsultationCard = ({ title, description, duration, price }: { title: string, description: string, duration: string, price: string }) => (
+const ConsultationCard = ({ title, description, duration, price, href }: { title: string, description: string, duration: string, price: string, href: string }) => (
     <Card className="bg-card dark:bg-gray-800/50 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-border/50">
         <CardHeader>
             <CardTitle className="text-xl font-bold">{title}</CardTitle>
@@ -248,7 +248,9 @@ const ConsultationCard = ({ title, description, duration, price }: { title: stri
             <span className="font-bold text-lg text-primary">{price}</span>
         </CardContent>
         <CardFooter>
-            <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold">Book Now</Button>
+            <a href={href} target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold">Book Now</Button>
+            </a>
         </CardFooter>
     </Card>
 )
