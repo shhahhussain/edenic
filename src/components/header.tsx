@@ -13,7 +13,7 @@ import { CloudTrail } from './CloudTrail'
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/#services' },
-  { label: 'About', href: '/#certifications' },
+  { label: 'About', href: '/about' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Contact', href: '/contact' },
 ]
