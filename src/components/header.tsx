@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Moon, Sun } from "lucide-react"
 import { Button } from "./ui/button"
 import { useTheme } from "next-themes"
@@ -10,10 +11,11 @@ import Image from 'next/image'
 import { CloudTrail } from './CloudTrail'
 
 const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'Services', href: '#services' },
-  { label: 'About', href: '#certifications' },
-  { label: 'Contact', href: '#contact' }
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/#services' },
+  { label: 'About', href: '/#certifications' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 export const Header = () => {
@@ -21,6 +23,7 @@ export const Header = () => {
   const [mounted, setMounted] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     setMounted(true)
@@ -32,22 +35,29 @@ export const Header = () => {
   }, [])
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#')) {
-      e.preventDefault();
-      const targetId = href.substring(1);
-      const targetElement = document.getElementById(targetId);
+    if (pathname === '/' && href.startsWith('/#')) {
+      e.preventDefault()
+      const targetId = href.substring(2)
+      const targetElement = document.getElementById(targetId)
       if (targetElement) {
-        const headerOffset = 80; // height of the header
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
+        const headerOffset = 80 // height of the header
+        const elementPosition = targetElement.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth"
-        });
+          behavior: 'smooth',
+        })
       }
     }
-  };
+    // On other pages, let the Link component handle navigation.
+  }
+
+  const handleMobileLinkClick = (href: string) => {
+    setIsMobileMenuOpen(false)
+    // We can't pass the event here, so we'll just navigate.
+    // Smooth scroll on mobile for hash links can be revisited if needed.
+  }
 
   if (!mounted) {
     return null
@@ -69,7 +79,7 @@ export const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0">
-              <Link href="#home" className="flex items-center" onClick={(e) => handleLinkClick(e, "#home")}>
+              <Link href="/" className="flex items-center">
                 <div className="relative w-40 h-10">
                   <Image
                     src="/logo.png"
@@ -112,7 +122,7 @@ export const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 className="relative"
               >
-                <Link href="#contact" onClick={(e) => handleLinkClick(e, "#contact")} passHref>
+                <Link href="/#contact" onClick={(e) => handleLinkClick(e, "/#contact")} passHref>
                   <motion.div
                     className="px-6 py-2 rounded-full bg-blue-600 text-white font-medium overflow-hidden group hover:bg-blue-700 transition-colors dark:bg-blue-600 dark:hover:bg-blue-700 dark:text-white"
                   >
@@ -198,18 +208,13 @@ export const Header = () => {
                     key={item.href}
                     href={item.href}
                     className="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    onClick={(e) => {
-                      handleLinkClick(e, item.href);
-                      setIsMobileMenuOpen(false);
-                    }}
+                    onClick={() => handleMobileLinkClick(item.href)}
                   >
                     {item.label}
                   </Link>
                 ))}
-                <Link href="#contact" onClick={(e) => { handleLinkClick(e, "#contact"); setIsMobileMenuOpen(false); }} className="w-full">
-                  <button className="w-full px-6 py-2 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors dark:bg-blue-600 dark:hover:bg-blue-700">
-                    Get Started
-                  </button>
+                <Link href="/#contact" passHref>
+                   <Button className="w-full" onClick={() => handleMobileLinkClick('/#contact')}>Get Started</Button>
                 </Link>
               </div>
             </div>
@@ -221,4 +226,5 @@ export const Header = () => {
 }
 
 export default Header
+
 

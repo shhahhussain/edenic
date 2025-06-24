@@ -4,6 +4,7 @@ import CloudFacts from "../components/cloud-facts"
 import Services from "../components/services"
 import Certifications from "../components/certifications"
 import Contact from "../components/contact"
+import PricingPreview from "../components/PricingPreview"
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Services />
       {/* <Solutions /> */}
       <Certifications />
+      <PricingPreview />
       <Contact />
     </main>
   )
