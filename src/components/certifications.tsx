@@ -37,6 +37,11 @@ const certifications = [
     issuer: "Cloud Native Computing Foundation",
     logo: "/certificates/CKA- Certified Kubernetes Administrator .png",
   },
+  {
+    name: "Huawei Cloud Developer Certification (HCCDA – Tech Essentials)",
+    issuer: "Huawei Cloud",
+    logo: "/certificates/huawie_hccda.png",
+  },
 ];
 
 export default function Certifications() {
