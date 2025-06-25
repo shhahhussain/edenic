@@ -30,7 +30,7 @@ export default function PricingPreview() {
             className="group bg-card dark:bg-gray-800/50 rounded-2xl p-8 flex flex-col h-full"
           >
             <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4">Project-Based</h3>
-            <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$2,500+</p>
+            <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$1,000+</p>
             <ul className="space-y-2 text-muted-foreground dark:text-gray-300 mb-6 flex-grow">
               <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Defined Scope</li>
               <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> One-Time Cost</li>
@@ -44,7 +44,7 @@ export default function PricingPreview() {
             className="group bg-card dark:bg-gray-800/50 rounded-2xl p-8 flex flex-col h-full"
           >
             <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4">Monthly Retainer</h3>
-            <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$1,500+/mo</p>
+            <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$500+/mo</p>
              <ul className="space-y-2 text-muted-foreground dark:text-gray-300 mb-6 flex-grow">
               <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Ongoing Support</li>
               <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Continuous Optimization</li>
@@ -58,7 +58,7 @@ export default function PricingPreview() {
             className="group bg-card dark:bg-gray-800/50 rounded-2xl p-8 flex flex-col h-full"
           >
             <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4">Hourly / On-Demand</h3>
-            <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$150/hr</p>
+            <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$50/hr</p>
             <ul className="space-y-2 text-muted-foreground dark:text-gray-300 mb-6 flex-grow">
               <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Flexible & Ad-hoc</li>
               <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Pay As You Go</li>
