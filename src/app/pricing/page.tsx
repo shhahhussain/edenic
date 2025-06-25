@@ -34,7 +34,7 @@ export default function Pricing() {
                   <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Full Project Lifecycle</li>
                   <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Ideal for Transformations</li>
                 </ul>
-                <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">$2,500 – $25,000+</div>
+                <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">$1,000 – $10,000+</div>
                 <div className="text-sm text-muted-foreground dark:text-gray-400 mb-6">Scope-based, tailored to project complexity.</div>
                 <Button>Get a Quote</Button>
               </div>
@@ -54,11 +54,11 @@ export default function Pricing() {
                   <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Continuous Improvement</li>
                 </ul>
                 <div className="mb-2">
-                  <div className="text-lg font-semibold text-blue-600 dark:text-blue-400">Starter: $1,500/mo</div>
+                  <div className="text-lg font-semibold text-blue-600 dark:text-blue-400">Starter: $500/mo</div>
                   <div className="text-sm text-muted-foreground dark:text-gray-400">Basic monitoring & support</div>
-                  <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mt-2">Growth: $3,000/mo</div>
+                  <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mt-2">Growth: $1,200/mo</div>
                   <div className="text-sm text-muted-foreground dark:text-gray-400">Proactive management</div>
-                  <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mt-2">Scale: $6,000+/mo</div>
+                  <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mt-2">Scale: $2,500+/mo</div>
                   <div className="text-sm text-muted-foreground dark:text-gray-400 mb-6">Full-stack DevOps & 24/7</div>
                 </div>
                  <Button>Choose Plan</Button>
@@ -78,7 +78,7 @@ export default function Pricing() {
                   <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Emergency & Ad-hoc Support</li>
                   <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> No Long-term Commitment</li>
                 </ul>
-                <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">$150 – $250/hr</div>
+                <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">$50 – $120/hr</div>
                 <div className="text-sm text-muted-foreground dark:text-gray-400 mb-6">Pay only for what you use.</div>
                  <Button>Get Support</Button>
               </div>
@@ -97,7 +97,7 @@ export default function Pricing() {
                   <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Logging & Monitoring</li>
                   <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Security & Compliance</li>
                 </ul>
-                <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">$300 – $2,500+/mo</div>
+                <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">$100 – $1,000+/mo</div>
                 <div className="text-sm text-muted-foreground dark:text-gray-400 mb-6">Choose only what you need.</div>
                  <Button>Customize</Button>
               </div>

@@ -7,10 +7,10 @@ import { Briefcase, BarChart, Users, Award, Target, Rocket, Lightbulb, TrendingU
 import Link from "next/link"
 
 const stats = [
-  { value: "10,000+", label: "Enterprise Clients", icon: <Briefcase className="w-8 h-8" /> },
-  { value: "50+", label: "Countries Served", icon: <BarChart className="w-8 h-8" /> },
-  { value: "99.99%", label: "Uptime SLA", icon: <Users className="w-8 h-8" /> },
-  { value: "$2.5B+", label: "Cost Savings Delivered", icon: <Award className="w-8 h-8" /> },
+  { value: "10+", label: "Satisfied Clients", icon: <Briefcase className="w-8 h-8" /> },
+  { value: "3", label: "Countries Served", icon: <BarChart className="w-8 h-8" /> },
+  { value: "99.9%", label: "Uptime SLA", icon: <Users className="w-8 h-8" /> },
+  { value: "5+", label: "Cloud Certifications", icon: <Award className="w-8 h-8" /> },
 ]
 
 const values = [
