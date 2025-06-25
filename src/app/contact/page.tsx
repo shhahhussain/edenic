@@ -128,54 +128,56 @@ export default function DetailedContactPage() {
                 <form
                   ref={form}
                   onSubmit={handleSubmit}
-                  className="space-y-6 h-full flex flex-col flex-grow"
+                  className="space-y-4 h-full flex flex-col flex-grow"
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <InputWithLabel
+                        id="first_name"
+                        name="first_name"
+                        label="First Name"
+                        placeholder="John"
+                        disabled={isSubmitting}
+                        required
+                      />
+                      <InputWithLabel
+                        id="last_name"
+                        name="last_name"
+                        label="Last Name"
+                        placeholder="Doe"
+                        disabled={isSubmitting}
+                        required
+                      />
+                    </div>
                     <InputWithLabel
-                      id="first_name"
-                      name="first_name"
-                      label="First Name"
-                      placeholder="John"
+                      id="email"
+                      name="user_email"
+                      type="email"
+                      label="Email"
+                      placeholder="john@company.com"
                       disabled={isSubmitting}
                       required
                     />
                     <InputWithLabel
-                      id="last_name"
-                      name="last_name"
-                      label="Last Name"
-                      placeholder="Doe"
+                      id="company"
+                      name="company"
+                      label="Company"
+                      placeholder="Your Company"
                       disabled={isSubmitting}
-                      required
+                    />
+                    <InputWithLabel
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      label="Phone"
+                      placeholder="+923110444411"
+                      disabled={isSubmitting}
                     />
                   </div>
-                  <InputWithLabel
-                    id="email"
-                    name="user_email"
-                    type="email"
-                    label="Email"
-                    placeholder="john@company.com"
-                    disabled={isSubmitting}
-                    required
-                  />
-                  <InputWithLabel
-                    id="company"
-                    name="company"
-                    label="Company"
-                    placeholder="Your Company"
-                    disabled={isSubmitting}
-                  />
-                  <InputWithLabel
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    label="Phone"
-                    placeholder="+923110444411"
-                    disabled={isSubmitting}
-                  />
-                  <div className="mt-auto">
+                  <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-foreground dark:text-gray-100 mb-2"
+                      className="block text-sm font-medium text-foreground dark:text-gray-100 mb-4"
                     >
                       Message
                     </label>
@@ -206,7 +208,7 @@ export default function DetailedContactPage() {
                     )}
                   </Button>
                   {error && (
-                    <p className="text-red-500 text-sm mt-4 text-center">
+                    <p className="text-red-500 text-sm text-center">
                       {error}
                     </p>
                   )}
@@ -224,7 +226,7 @@ export default function DetailedContactPage() {
             className="flex flex-col h-full space-y-6"
           >
             {/* Schedule a Consultation */}
-            <div className="flex-grow space-y-6">
+            <div className="flex-grow space-y-2">
               <h3 className="text-3xl font-bold mb-2 text-foreground">
                 Schedule a Consultation
               </h3>
@@ -374,7 +376,7 @@ const InputWithLabel = ({
   <div>
     <label
       htmlFor={id}
-      className="block text-sm font-medium text-foreground dark:text-gray-100 mb-2"
+      className="block text-sm font-medium text-foreground dark:text-gray-100 mb-4"
     >
       {label}
     </label>
@@ -403,26 +405,26 @@ const ConsultationCard = ({
   price: string;
   href: string;
 }) => (
-  <Card className="bg-card dark:bg-gray-800/50 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-border/50">
-    <CardHeader>
-      <CardTitle className="text-xl font-bold">{title}</CardTitle>
-      <CardDescription>{description}</CardDescription>
+  <Card className="bg-card dark:bg-gray-800/50 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-border/50 p-3">
+    <CardHeader className="py-2 px-0">
+      <CardTitle className="text-lg font-bold mb-1">{title}</CardTitle>
+      <CardDescription className="text-sm mb-1">{description}</CardDescription>
     </CardHeader>
-    <CardContent className="flex justify-between items-center text-sm">
-      <div className="flex items-center gap-2 text-muted-foreground">
-        <Clock size={16} />
+    <CardContent className="flex justify-between items-center text-xs py-2 px-0">
+      <div className="flex items-center gap-1 text-muted-foreground">
+        <Clock size={14} />
         <span>{duration}</span>
       </div>
-      <span className="font-bold text-lg text-primary">{price}</span>
+      <span className="font-bold text-base text-primary">{price}</span>
     </CardContent>
-    <CardFooter>
+    <CardFooter className="py-2 px-0">
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
         className="w-full"
       >
-        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold">
+        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 text-sm">
           Book Now
         </Button>
       </a>
