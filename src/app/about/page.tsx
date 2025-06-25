@@ -22,25 +22,18 @@ const values = [
 
 const leadership = [
   {
-    name: "Dr. Sarah Chen",
-    role: "Chief Technology Officer",
-    bio: "Former Google Cloud architect with 15+ years in distributed systems and AI/ML infrastructure.",
-    skills: ["Quantum Computing", "AI/ML Architecture", "Distributed Systems"],
-    image: "/leader-1.jpg", // Placeholder image
+    name: "Shah Hussain",
+    role: "Co-Founder & CEO",
+    bio: "Business strategist with a strong track record in scaling technology ventures, building partnerships, and driving organizational growth.",
+    skills: ["Business Strategy", "Partnership Development", "Growth Leadership"],
+    image: "/leader-shah.jpg",
   },
   {
-    name: "Michael Rodriguez",
-    role: "VP of DevOps Engineering",
-    bio: "Ex-Netflix infrastructure lead who scaled systems to billions of requests per day.",
-    skills: ["Site Reliability", "Container Orchestration", "Performance Engineering"],
-    image: "/leader-2.jpg", // Placeholder image
-  },
-  {
-    name: "Dr. Emily Watson",
-    role: "Head of Security",
-    bio: "Cybersecurity expert with Pentagon clearance, specializing in quantum-resistant cryptography.",
-    skills: ["Quantum Cryptography", "Zero Trust Architecture", "Compliance"],
-    image: "/leader-3.jpg", // Placeholder image
+    name: "Hamza Khan",
+    role: "Co-Founder & CTO",
+    bio: "Technical visionary specializing in cloud architecture, automation, and delivering robust, scalable solutions for diverse industries.",
+    skills: ["Cloud Architecture", "Infrastructure Automation", "Technical Leadership"],
+    image: "/leader-hamza.jpg",
   },
 ]
 
@@ -136,10 +129,9 @@ export default function AboutPage() {
           className="mb-24"
         >
           <h2 className="text-4xl font-bold text-center mb-12">Leadership Team</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="flex justify-center gap-8">
             {leadership.map((member, index) => (
               <Card key={index} className="bg-card dark:bg-gray-900/50 overflow-hidden text-center">
-                {/* <Image src={member.image} alt={member.name} width={400} height={400} className="w-full h-56 object-cover" /> */}
                 <div className="p-6">
                   <h3 className="text-xl font-bold">{member.name}</h3>
                   <p className="text-blue-500 dark:text-blue-400 font-semibold mb-2">{member.role}</p>
