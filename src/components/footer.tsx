@@ -64,7 +64,7 @@ export const Footer = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="bg-gray-950 text-white"
+            className="bg-white text-gray-900 dark:bg-gray-950 dark:text-white"
         >
             <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
@@ -77,7 +77,7 @@ export const Footer = () => {
                                 className="object-contain"
                             />
                         </div>
-                        <p className="mt-6 text-gray-400 max-w-xs leading-relaxed">
+                        <p className="mt-6 text-gray-500 dark:text-gray-400 max-w-xs leading-relaxed">
                             Transforming businesses with cutting-edge cloud solutions and DevOps expertise.
                         </p>
                         <div className="mt-8">
@@ -86,7 +86,7 @@ export const Footer = () => {
                                 <Input
                                     type="email"
                                     placeholder="Enter your email"
-                                    className="bg-gray-800 border-gray-700 text-white rounded-lg w-full sm:w-auto flex-grow"
+                                    className="bg-gray-100 border-gray-300 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-white rounded-lg w-full sm:w-auto flex-grow"
                                 />
                                 <Button className="bg-blue-600 hover:bg-blue-700 rounded-lg w-full sm:w-auto">
                                     Subscribe
@@ -103,7 +103,7 @@ export const Footer = () => {
                                         <li key={item.name}>
                                             <Link
                                                 href={item.href}
-                                                className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                                                className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors duration-300"
                                             >
                                                 {item.name}
                                             </Link>
@@ -115,7 +115,7 @@ export const Footer = () => {
                     </div>
                 </div>
                 <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center">
-                    <p className="text-gray-500 text-sm">
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">
                         &copy; {new Date().getFullYear()} Edenic Inc. All rights reserved.
                     </p>
                     <div className="flex items-center space-x-5 mt-4 sm:mt-0">
@@ -125,7 +125,7 @@ export const Footer = () => {
                                 href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-blue-400 transition-transform duration-300 hover:scale-110"
+                                className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-transform duration-300 hover:scale-110"
                             >
                                 {social.icon}
                             </Link>

@@ -27,7 +27,7 @@ export default function PricingPreview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="group bg-card dark:bg-gray-800/50 rounded-2xl p-8 flex flex-col h-full"
+            className="group bg-card dark:bg-gray-800/50 rounded-2xl p-8 flex flex-col h-full border border-border shadow-md"
           >
             <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4">Project-Based</h3>
             <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$1,000+</p>
@@ -41,7 +41,7 @@ export default function PricingPreview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="group bg-card dark:bg-gray-800/50 rounded-2xl p-8 flex flex-col h-full"
+            className="group bg-card dark:bg-gray-800/50 rounded-2xl p-8 flex flex-col h-full border border-border shadow-md"
           >
             <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4">Monthly Retainer</h3>
             <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$500+/mo</p>
@@ -55,7 +55,7 @@ export default function PricingPreview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="group bg-card dark:bg-gray-800/50 rounded-2xl p-8 flex flex-col h-full"
+            className="group bg-card dark:bg-gray-800/50 rounded-2xl p-8 flex flex-col h-full border border-border shadow-md"
           >
             <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4">Hourly / On-Demand</h3>
             <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$50/hr</p>
@@ -67,7 +67,9 @@ export default function PricingPreview() {
         </div>
         <div className="text-center mt-12">
             <Link href="/pricing">
-                <Button size="lg">View All Pricing Plans</Button>
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white">
+                  View All Pricing Plans
+                </Button>
             </Link>
         </div>
       </div>

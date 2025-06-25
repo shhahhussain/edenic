@@ -177,7 +177,7 @@ export default function DetailedContactPage() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-foreground dark:text-gray-100 mb-4"
+                      className="block text-sm font-medium text-blue-600 dark:text-blue-400 mb-4"
                     >
                       Message
                     </label>
@@ -376,7 +376,7 @@ const InputWithLabel = ({
   <div>
     <label
       htmlFor={id}
-      className="block text-sm font-medium text-foreground dark:text-gray-100 mb-4"
+      className="block text-sm font-medium text-blue-600 dark:text-blue-400 mb-4"
     >
       {label}
     </label>

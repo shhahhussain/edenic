@@ -74,7 +74,7 @@ export default function Contact() {
               <div className="bg-card dark:bg-gray-800/50 rounded-2xl shadow-xl p-6 sm:p-8 transform hover:-translate-y-1 transition-all duration-300 border border-border dark:border-gray-700">
                 <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground dark:text-gray-100 mb-1">
+                    <label htmlFor="name" className="block text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">
                       Name
                     </label>
                     <Input
@@ -88,7 +88,7 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground dark:text-gray-100 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">
                       Email
                     </label>
                     <Input
@@ -102,7 +102,7 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground dark:text-gray-100 mb-1">
+                    <label htmlFor="message" className="block text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">
                       Message
                     </label>
                     <Textarea
