@@ -84,7 +84,7 @@ export const Header = () => {
                 <div className="relative w-40 h-10">
                   <Image
                     src="/logo.png"
-                    alt="CloudFlow"
+                    alt="Edenic"
                     fill
                     className="object-contain dark:opacity-90"
                     priority

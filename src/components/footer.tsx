@@ -72,7 +72,7 @@ export const Footer = () => {
                         <div className="w-40 h-10 relative">
                             <Image
                                 src="/logo.png"
-                                alt="CloudFlow"
+                                alt="Edenic"
                                 layout="fill"
                                 className="object-contain"
                             />
