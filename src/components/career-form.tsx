@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, ChangeEvent } from "react"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
@@ -13,6 +13,7 @@ export default function CareerForm({ jobTitle }: { jobTitle: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSent, setIsSent] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [selectedResume, setSelectedResume] = useState<string>("")
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -88,9 +89,29 @@ export default function CareerForm({ jobTitle }: { jobTitle: string }) {
             <label htmlFor="resume" className="block text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">
               Resume/CV
             </label>
-            <Input type="file" id="resume" name="resume" disabled={isSubmitting} required 
-              className="file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-            />
+            <div className="flex items-center">
+              <label htmlFor="resume" className="cursor-pointer bg-blue-600 text-white px-4 py-2 rounded-l-md border border-blue-700 hover:bg-blue-700 transition text-sm font-semibold">
+                Choose file
+              </label>
+              <input
+                id="resume"
+                name="resume"
+                type="file"
+                required
+                disabled={isSubmitting}
+                className="hidden"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  if (e.target.files && e.target.files[0]) {
+                    setSelectedResume(e.target.files[0].name)
+                  } else {
+                    setSelectedResume("")
+                  }
+                }}
+              />
+              <span className="bg-blue-900 text-white px-4 py-2 rounded-r-md border-t border-b border-r border-blue-700 text-sm min-w-[120px] truncate">
+                {selectedResume || "No file chosen"}
+              </span>
+            </div>
           </div>
           <div>
             <label htmlFor="cover_letter" className="block text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">
