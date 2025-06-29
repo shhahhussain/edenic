@@ -5,8 +5,7 @@ interface ServiceConnectorsProps {
     totalItems: number;
 }
 
-const ServiceConnectors = ({ iconPositions, totalItems }: ServiceConnectorsProps) => {
-    console.log("ServiceConnectors received iconPositions:", iconPositions);
+export default function ServiceConnectors({ iconPositions, totalItems }: ServiceConnectorsProps) {
     const paths = [];
 
     // Generate horizontal lines
@@ -75,6 +74,4 @@ const ServiceConnectors = ({ iconPositions, totalItems }: ServiceConnectorsProps
             </svg>
         </div>
     );
-};
-
-export default ServiceConnectors; 
+} 

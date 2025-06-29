@@ -6,14 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Loader2, Clock, Shield } from "lucide-react";
-import emailjs from "@emailjs/browser";
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter,
 } from "@/components/ui/card";
 import {
   Accordion,
@@ -28,7 +26,7 @@ export default function DetailedContactPage() {
   const [isSent, setIsSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.current) return;
 
@@ -36,28 +34,28 @@ export default function DetailedContactPage() {
     setIsSent(false);
     setError(null);
 
-    // Replace with your EmailJS credentials
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
-    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
-
-    emailjs
-      .sendForm(serviceID, templateID, form.current, {
-        publicKey: publicKey,
-      })
-      .then(
-        () => {
-          setIsSent(true);
-          form.current?.reset();
-        },
-        (error) => {
-          setError("Failed to send the message. Please try again.");
-          console.log("FAILED...", error.text);
-        }
-      )
-      .finally(() => {
-        setIsSubmitting(false);
+    try {
+      const formData = new FormData(form.current);
+      
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
       });
+
+      if (response.ok) {
+        setIsSent(true);
+        form.current?.reset();
+      } else {
+        const errorData = await response.json();
+        setError("Failed to send the message. Please try again.");
+        console.error("Submission failed:", errorData);
+      }
+    } catch (error) {
+      setError("Failed to send the message. Please try again.");
+      console.error("Submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -151,7 +149,7 @@ export default function DetailedContactPage() {
                     </div>
                     <InputWithLabel
                       id="email"
-                      name="user_email"
+                      name="email"
                       type="email"
                       label="Email"
                       placeholder="john@company.com"
@@ -254,26 +252,25 @@ export default function DetailedContactPage() {
             </div>
 
             {/* Emergency Support */}
-            <Card className="bg-red-500/10 dark:bg-red-900/20 border-red-500/30 rounded-2xl shadow-lg h-full flex flex-col justify-between">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3 text-2xl text-red-500 dark:text-red-400">
-                  <Shield size={28} />
-                  Emergency Support
-                </CardTitle>
-                <CardDescription className="text-red-500/80 dark:text-red-400/70">
-                  Critical infrastructure issues? Our emergency response team is
-                  available 24/7.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="mt-auto">
-                <a
-                  href="tel:+923110444411"
-                  className="text-xl font-bold text-center block text-foreground hover:text-primary transition"
-                >
-                  Call Emergency Line: +923110444411
-                </a>
-              </CardContent>
-            </Card>
+            <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-6 text-white">
+              <div className="flex items-center gap-3 mb-3">
+                <Shield className="w-6 h-6" />
+                <h3 className="text-xl font-bold">Emergency Support</h3>
+              </div>
+              <p className="text-red-100 mb-4">
+                Critical infrastructure issues? Get immediate assistance 24/7.
+              </p>
+              <div className="flex items-center gap-2 text-red-100">
+                <Clock className="w-4 h-4" />
+                <span className="text-sm">Response time: &lt; 15 minutes</span>
+              </div>
+              <Button
+                className="mt-4 w-full bg-white text-red-600 hover:bg-red-50"
+                asChild
+              >
+                <a href="tel:+923110444411">Call Emergency Line</a>
+              </Button>
+            </div>
           </motion.div>
         </div>
 
@@ -405,29 +402,28 @@ const ConsultationCard = ({
   price: string;
   href: string;
 }) => (
-  <Card className="bg-card dark:bg-gray-800/50 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-border/50 p-3">
-    <CardHeader className="py-2 px-0">
-      <CardTitle className="text-lg font-bold mb-1">{title}</CardTitle>
-      <CardDescription className="text-sm mb-1">{description}</CardDescription>
+  <Card className="bg-card dark:bg-gray-800/50 border border-border/30 hover:shadow-lg transition-all duration-300">
+    <CardHeader className="pb-3">
+      <CardTitle className="text-lg font-semibold text-blue-600 dark:text-blue-400">
+        {title}
+      </CardTitle>
+      <CardDescription className="text-sm">{description}</CardDescription>
     </CardHeader>
-    <CardContent className="flex justify-between items-center text-xs py-2 px-0">
-      <div className="flex items-center gap-1 text-muted-foreground">
-        <Clock size={14} />
-        <span>{duration}</span>
+    <CardContent className="pt-0">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Clock className="w-4 h-4" />
+          <span>{duration}</span>
+        </div>
+        <div className="text-lg font-bold text-green-600 dark:text-green-400">
+          {price}
+        </div>
       </div>
-      <span className="font-bold text-base text-primary">{price}</span>
+      <Button className="w-full" asChild>
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          Schedule Now
+        </a>
+      </Button>
     </CardContent>
-    <CardFooter className="py-2 px-0">
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full"
-      >
-        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 text-sm">
-          Book Now
-        </Button>
-      </a>
-    </CardFooter>
   </Card>
 );

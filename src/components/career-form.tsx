@@ -5,7 +5,6 @@ import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import { Loader2 } from "lucide-react"
-import emailjs from "@emailjs/browser"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
 
 export default function CareerForm({ jobTitle }: { jobTitle: string }) {
@@ -15,7 +14,7 @@ export default function CareerForm({ jobTitle }: { jobTitle: string }) {
   const [error, setError] = useState<string | null>(null)
   const [selectedResume, setSelectedResume] = useState<string>("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!form.current) return;
 
@@ -23,27 +22,56 @@ export default function CareerForm({ jobTitle }: { jobTitle: string }) {
     setIsSent(false)
     setError(null)
 
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
-    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
-
-    emailjs
-      .sendForm(serviceID, templateID, form.current, {
-        publicKey: publicKey,
-      })
-      .then(
-        () => {
-          setIsSent(true);
-          form.current?.reset();
-        },
-        (error) => {
-          setError("Failed to send the application. Please try again.");
-          console.log("FAILED...", error.text);
-        }
-      )
-      .finally(() => {
-        setIsSubmitting(false);
+    try {
+      const formData = new FormData(form.current);
+      
+      const response = await fetch('/api/career', {
+        method: 'POST',
+        body: formData,
       });
+
+      let result;
+      try {
+        result = await response.json();
+      } catch (parseError) {
+        console.error('Failed to parse API response:', parseError);
+        setError("Failed, sorry try again.");
+        return;
+      }
+
+      if (response.ok) {
+        setIsSent(true);
+        form.current?.reset();
+        setSelectedResume("");
+        
+        if (result.message) {
+          setError(null);
+          setTimeout(() => {
+            alert(result.message);
+          }, 100);
+        }
+      } else {
+        if (result.error && result.error.includes('File too large for submission')) {
+          setError("Failed, sorry try again.");
+        } else if (result.error && result.error.includes('File uploads are not supported')) {
+          setError("Failed, sorry try again.");
+        } else if (result.error && result.error.includes('File too large')) {
+          setError("Failed, sorry try again.");
+        } else if (result.error && result.details) {
+          setError("Failed, sorry try again.");
+        } else if (result.error) {
+          setError("Failed, sorry try again.");
+        } else {
+          setError("Failed, sorry try again.");
+        }
+        console.error("Submission failed:", result);
+      }
+    } catch (error) {
+      console.error("Network or other error:", error);
+      setError("Failed, sorry try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -77,13 +105,13 @@ export default function CareerForm({ jobTitle }: { jobTitle: string }) {
             <label htmlFor="email" className="block text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">
               Email
             </label>
-            <Input type="email" id="email" name="user_email" placeholder="your.email@example.com" disabled={isSubmitting} required />
+            <Input type="email" id="email" name="email" placeholder="your.email@example.com" disabled={isSubmitting} required />
           </div>
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">
               Phone Number
             </label>
-            <Input type="tel" id="phone" name="user_phone" placeholder="+1 (555) 123-4567" disabled={isSubmitting} />
+            <Input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" disabled={isSubmitting} />
           </div>
           <div>
             <label htmlFor="resume" className="block text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">
@@ -100,9 +128,18 @@ export default function CareerForm({ jobTitle }: { jobTitle: string }) {
                 required
                 disabled={isSubmitting}
                 className="hidden"
+                accept=".pdf,.doc,.docx"
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   if (e.target.files && e.target.files[0]) {
-                    setSelectedResume(e.target.files[0].name)
+                    const file = e.target.files[0];
+                    if (file.size > 50 * 1024 * 1024) {
+                      setError("Failed, sorry try again.");
+                      e.target.value = '';
+                      setSelectedResume("");
+                    } else {
+                      setSelectedResume(file.name);
+                      setError(null);
+                    }
                   } else {
                     setSelectedResume("")
                   }
@@ -112,6 +149,7 @@ export default function CareerForm({ jobTitle }: { jobTitle: string }) {
                 {selectedResume || "No file chosen"}
               </span>
             </div>
+            <p className="text-xs text-muted-foreground mt-1">Maximum file size: 50MB</p>
           </div>
           <div>
             <label htmlFor="cover_letter" className="block text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">
@@ -142,7 +180,11 @@ export default function CareerForm({ jobTitle }: { jobTitle: string }) {
                 "Submit Application"
             )}
           </Button>
-          {error && <p className="text-red-500 text-sm mt-4 text-center">{error}</p>}
+          {error && (
+            <div className="text-red-500 text-sm mt-4 text-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+              {error}
+            </div>
+          )}
         </form>
       </CardContent>
     </Card>

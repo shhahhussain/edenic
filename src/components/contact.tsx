@@ -6,7 +6,6 @@ import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import { Phone, Mail, MapPin, Loader2 } from "lucide-react"
-import emailjs from "@emailjs/browser"
 
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
@@ -14,7 +13,7 @@ export default function Contact() {
   const [isSent, setIsSent] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!form.current) return;
 
@@ -22,27 +21,28 @@ export default function Contact() {
     setIsSent(false)
     setError(null)
 
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
-    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
-
-    emailjs
-      .sendForm(serviceID, templateID, form.current, {
-        publicKey: publicKey,
-      })
-      .then(
-        () => {
-          setIsSent(true);
-          form.current?.reset();
-        },
-        (error) => {
-          setError("Failed to send the message. Please try again.");
-          console.log("FAILED...", error.text);
-        }
-      )
-      .finally(() => {
-        setIsSubmitting(false);
+    try {
+      const formData = new FormData(form.current);
+      
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
       });
+
+      if (response.ok) {
+        setIsSent(true);
+        form.current?.reset();
+      } else {
+        const errorData = await response.json();
+        setError("Failed to send the message. Please try again.");
+        console.error("Submission failed:", errorData);
+      }
+    } catch (error) {
+      setError("Failed to send the message. Please try again.");
+      console.error("Submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -80,7 +80,7 @@ export default function Contact() {
                     <Input
                       type="text"
                       id="name"
-                      name="user_name"
+                      name="name"
                       className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-400 focus:border-transparent"
                       placeholder="Your name"
                       disabled={isSubmitting}
@@ -94,7 +94,7 @@ export default function Contact() {
                     <Input
                       type="email"
                       id="email"
-                      name="user_email"
+                      name="email"
                       className="w-full rounded-xl border border-border dark:border-gray-700 bg-input dark:bg-gray-800 text-foreground dark:text-gray-100 placeholder:text-muted-foreground dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-blue-400 focus:border-transparent"
                       placeholder="your.email@example.com"
                       disabled={isSubmitting}
