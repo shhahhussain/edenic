@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { Cloud, Server, Code, RefreshCw, Users } from "lucide-react"
+import { Cloud, Server, Code, RefreshCw, Users, TrendingUp } from "lucide-react"
 import { Button } from "../../../components/ui/button"
 import Image from "next/image"
 
@@ -118,6 +118,29 @@ const services = [
     ],
     image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop",
     imageAlt: "DevOps automation workflow"
+  },
+  {
+    slug: "business-development",
+    name: "Business Development Consulting",
+    description: "Accelerate your business growth with strategic consulting services. We help technology companies expand their market reach, optimize sales processes, and build lasting client relationships in the cloud and DevOps space.",
+    icon: TrendingUp,
+    details: "Our business development consulting services help technology companies accelerate growth through strategic market expansion, sales process optimization, and relationship building in the cloud and DevOps industry.",
+    features: [
+      "Market analysis and strategy",
+      "Sales process optimization",
+      "Client relationship management",
+      "Partnership development",
+      "Revenue growth planning"
+    ],
+    benefits: [
+      "Increased market reach",
+      "Improved sales efficiency",
+      "Stronger client relationships",
+      "Strategic partnerships",
+      "Sustainable revenue growth"
+    ],
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+    imageAlt: "Business development strategy meeting"
   },
   {
     slug: "offshore-teams",

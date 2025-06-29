@@ -7,6 +7,7 @@ export interface Job {
   description: string;
   responsibilities: string[];
   qualifications: string[];
+  experience?: string;
 }
 
 export const jobs: Job[] = [
@@ -16,8 +17,9 @@ export const jobs: Job[] = [
     department: 'Sales & Business Development',
     location: 'Remote',
     type: 'Full-time',
+    experience: '2+ years',
     description:
-      'We’re a fast-growing cloud-native DevOps agency looking for a sharp and driven Business Development Officer to join our team. This role is all about spotting opportunities, building relationships, and helping businesses move confidently into the cloud. You’ll work closely with both technical and non-technical teams to translate real business needs into valuable cloud and DevOps solutions.',
+      'We\'re a fast-growing cloud-native DevOps agency looking for a sharp and driven Business Development Officer to join our team. This role is all about spotting opportunities, building relationships, and helping businesses move confidently into the cloud. You\'ll work closely with both technical and non-technical teams to translate real business needs into valuable cloud and DevOps solutions.',
     responsibilities: [
       'Identify and develop new business opportunities in the cloud and DevOps services market.',
       'Build and maintain strong relationships with potential clients, partners, and stakeholders.',
@@ -37,7 +39,7 @@ export const jobs: Job[] = [
       'Familiarity with CRM systems like HubSpot, Pipedrive, or Salesforce.',
       'Self-motivated, organized, and able to thrive in a fast-paced, remote-first team.',
       'Comfort discussing cloud platforms with clients; certifications are a plus but not required.',
-      'Bachelor’s degree in Business, Marketing, Computer Science, or a related field is preferred.',
+      'Bachelor\'s degree in Business, Marketing, Computer Science, or a related field is preferred.',
     ],
-  },
+  }
 ];

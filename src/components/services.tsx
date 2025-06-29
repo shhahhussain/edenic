@@ -1,6 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
-import { Cloud, Server, Code, RefreshCw, Users } from "lucide-react"
+import { Cloud, Server, Code, RefreshCw, Users, TrendingUp } from "lucide-react"
 import { Button } from "./ui/button"
 import Link from "next/link"
 import ServiceConnectors from "./ServiceConnectors"
@@ -36,6 +36,12 @@ const services = [
     name: "DevOps & Automation",
     description: "DevOps and automation are now the standard for seamlessly deploying applications across development and production environments. Adopting Agile methodology gives companies the edge in delivering new products to market.",
     icon: RefreshCw,
+  },
+  {
+    slug: "business-development",
+    name: "Business Development Consulting",
+    description: "Accelerate your business growth with strategic consulting services. We help technology companies expand their market reach, optimize sales processes, and build lasting client relationships in the cloud and DevOps space.",
+    icon: TrendingUp,
   },
   {
     slug: "offshore-teams",
