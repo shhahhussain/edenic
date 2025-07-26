@@ -29,11 +29,11 @@ export default function PricingPreview() {
             transition={{ duration: 0.5 }}
             className="group bg-card dark:bg-gray-800/50 rounded-2xl p-8 flex flex-col h-full border border-border shadow-md"
           >
-            <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4">Project-Based</h3>
-            <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$1,000+</p>
+            <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4">Landing Page</h3>
+            <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$499</p>
             <ul className="space-y-2 text-muted-foreground dark:text-gray-300 mb-6 flex-grow">
-              <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Defined Scope</li>
-              <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> One-Time Cost</li>
+              <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Single-page site</li>
+              <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Deployed & hosted</li>
             </ul>
           </motion.div>
           <motion.div
@@ -43,11 +43,11 @@ export default function PricingPreview() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="group bg-card dark:bg-gray-800/50 rounded-2xl p-8 flex flex-col h-full border border-border shadow-md"
           >
-            <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4">Monthly Retainer</h3>
-            <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$500+/mo</p>
+            <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4">Business Website + Admin Panel</h3>
+            <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$899</p>
              <ul className="space-y-2 text-muted-foreground dark:text-gray-300 mb-6 flex-grow">
-              <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Ongoing Support</li>
-              <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Continuous Optimization</li>
+              <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Multi-page site</li>
+              <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Admin dashboard</li>
             </ul>
           </motion.div>
           <motion.div
@@ -57,11 +57,11 @@ export default function PricingPreview() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="group bg-card dark:bg-gray-800/50 rounded-2xl p-8 flex flex-col h-full border border-border shadow-md"
           >
-            <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4">Hourly / On-Demand</h3>
-            <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$50/hr</p>
+            <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4">Full Stack SaaS/MVP Dev</h3>
+            <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">$1499</p>
             <ul className="space-y-2 text-muted-foreground dark:text-gray-300 mb-6 flex-grow">
-              <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Flexible & Ad-hoc</li>
-              <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Pay As You Go</li>
+              <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Complete MERN stack</li>
+              <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Deployment included</li>
             </ul>
           </motion.div>
         </div>

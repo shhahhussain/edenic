@@ -78,7 +78,7 @@ export const Footer = () => {
                             />
                         </div>
                         <p className="mt-6 text-gray-500 dark:text-gray-400 max-w-xs leading-relaxed">
-                            Transforming businesses with cutting-edge cloud solutions and DevOps expertise.
+                            Building modern web experiences with cutting-edge full stack expertise.
                         </p>
                         <div className="mt-8">
                             <h3 className="text-lg font-semibold">Subscribe to our newsletter</h3>

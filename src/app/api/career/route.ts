@@ -3,7 +3,7 @@ export const runtime = 'nodejs';
 import { NextRequest, NextResponse } from 'next/server';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
-const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB limit for AWS S3
+const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB limit for S3 storage
 
 const s3Client = new S3Client({
   region: process.env.AWS_REGION || 'us-east-1',

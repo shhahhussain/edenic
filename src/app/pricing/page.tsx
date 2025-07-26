@@ -28,15 +28,14 @@ export default function Pricing() {
               className="group bg-card dark:bg-gray-800/50 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-border dark:border-gray-700 md:col-span-1 lg:col-span-2"
             >
               <div className="p-8 flex flex-col h-full">
-                <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-300">Project-Based Pricing</h2>
+                <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-300">Landing Page</h2>
                 <ul className="space-y-2 text-muted-foreground dark:text-gray-300 mb-6 flex-grow">
-                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Defined Scope & Deliverables</li>
-                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Full Project Lifecycle</li>
-                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Ideal for Transformations</li>
+                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Single-page site</li>
+                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Deployed & hosted</li>
                 </ul>
-                <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">$1,000 – $10,000+</div>
-                <div className="text-sm text-muted-foreground dark:text-gray-400 mb-6">Scope-based, tailored to project complexity.</div>
-                <Button>Get a Quote</Button>
+                <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">$499</div>
+                <div className="text-sm text-muted-foreground dark:text-gray-400 mb-6">Perfect for product launches.</div>
+                <Button>Choose Plan</Button>
               </div>
             </motion.div>
             <motion.div
@@ -47,20 +46,14 @@ export default function Pricing() {
               className="group bg-card dark:bg-gray-800/50 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-border dark:border-gray-700 md:col-span-1 lg:col-span-2"
             >
               <div className="p-8 flex flex-col h-full">
-                <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-300">Monthly Retainer</h2>
+                <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-300">Business Website + Admin Panel</h2>
                  <ul className="space-y-2 text-muted-foreground dark:text-gray-300 mb-6 flex-grow">
-                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Ongoing DevOps Support</li>
-                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Monitoring & Optimization</li>
-                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Continuous Improvement</li>
+                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Multi-page site</li>
+                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Admin dashboard</li>
+                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Basic auth</li>
                 </ul>
-                <div className="mb-2">
-                  <div className="text-lg font-semibold text-blue-600 dark:text-blue-400">Starter: $500/mo</div>
-                  <div className="text-sm text-muted-foreground dark:text-gray-400">Basic monitoring & support</div>
-                  <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mt-2">Growth: $1,200/mo</div>
-                  <div className="text-sm text-muted-foreground dark:text-gray-400">Proactive management</div>
-                  <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mt-2">Scale: $2,500+/mo</div>
-                  <div className="text-sm text-muted-foreground dark:text-gray-400 mb-6">Full-stack DevOps & 24/7</div>
-                </div>
+                <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">$899</div>
+                <div className="text-sm text-muted-foreground dark:text-gray-400 mb-6">Ideal for growing businesses.</div>
                  <Button>Choose Plan</Button>
               </div>
             </motion.div>
@@ -72,15 +65,15 @@ export default function Pricing() {
               className="group bg-card dark:bg-gray-800/50 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-border dark:border-gray-700 md:col-span-1 lg:col-span-2"
             >
               <div className="p-8 flex flex-col h-full">
-                <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-300">Hourly / On-Demand</h2>
+                <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-4 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-300">Full Stack SaaS/MVP Dev</h2>
                 <ul className="space-y-2 text-muted-foreground dark:text-gray-300 mb-6 flex-grow">
-                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Pay-as-you-go model</li>
-                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Emergency & Ad-hoc Support</li>
-                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> No Long-term Commitment</li>
+                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Complete MERN stack</li>
+                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> Deployment included</li>
+                  <li className="flex items-center"><CheckCircle className="text-blue-500 mr-2" /> API & auth</li>
                 </ul>
-                <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">$50 – $120/hr</div>
-                <div className="text-sm text-muted-foreground dark:text-gray-400 mb-6">Pay only for what you use.</div>
-                 <Button>Get Support</Button>
+                <div className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">$1499</div>
+                <div className="text-sm text-muted-foreground dark:text-gray-400 mb-6">Launch-ready SaaS solution.</div>
+                 <Button>Choose Plan</Button>
               </div>
             </motion.div>
             <motion.div

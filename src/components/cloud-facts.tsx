@@ -1,30 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cloud, Server, TrendingUp, Shield } from "lucide-react";
+import { Code, Monitor, TrendingUp, Shield } from "lucide-react";
 import CircularGauge from "./CircularGauge";
 
 const CloudFacts = () => {
     const facts = [
         {
-            icon: Server,
-            value: 81,
-            label: "report optimized resource usage and reduced IT costs with container orchestration, including Kubernetes."
+            icon: Monitor,
+            value: 70,
+            label: "of companies rely on React for new web projects."
         },
         {
-            icon: Cloud,
-            value: 94,
-            label: "of enterprises leverage cloud services, with 67% of their infrastructure now cloud-based."
+            icon: Code,
+            value: 65,
+            label: "of developers prefer Node.js for building APIs."
         },
         {
             icon: TrendingUp,
-            value: 60,
-            label: "reduction in IT costs achieved by companies post-cloud migration."
+            value: 90,
+            label: "of startups choose JavaScript across the stack."
         },
         {
             icon: Shield,
-            value: 85,
-            label: "of organizations experience enhanced security after transitioning to cloud platforms."
+            value: 80,
+            label: "report faster delivery using the MERN stack."
         }
     ];
 
@@ -39,7 +39,7 @@ const CloudFacts = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        Why Businesses Move to the Cloud & Kubernetes
+                        Why Businesses Choose the MERN Stack
                     </motion.h2>
                     <motion.p
                         className="text-lg sm:text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto"
@@ -48,7 +48,7 @@ const CloudFacts = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                        Real-world stats on cloud migration and Kubernetes adoption
+                        Real-world stats on modern full stack development
                     </motion.p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">

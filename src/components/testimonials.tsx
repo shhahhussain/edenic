@@ -4,12 +4,12 @@ const testimonials = [
   {
     name: "Apporto",
     title: "CTO",
-    quote: "Worked with Edenic as contractors for over a year now. Their expertise, dedication to quality, and commitment to well-researched solutions have been outstanding. They are honest and professional in their approach. We only had one minor billing issue due to travel delays, but they quickly corrected it and ensured it never happened again. Overall, a reliable and skilled team.",
+    quote: "Edenic delivered our project on time and built a beautiful React interface that our users love.",
   },
   {
     name: "Sentinel AI",
     title: "CEO",
-    quote: "Working with the Edenic team has been a great experience. This is our second project with them, and they continue to impress us with their deep knowledge. From infrastructure setup to CI/CD pipelines, they have helped us scale our cloud infrastructure effectively. They don't just execute tasks—they also advise on best practices and optimal solutions, ensuring long-term success.",
+    quote: "They built a full-stack SaaS dashboard for our fintech startup and guided us through every step of the process.",
   },
 ];
 

@@ -70,12 +70,10 @@ export default function DetailedContactPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl sm:text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-4 tracking-tight">
-            Let&apos;s Transform Your Infrastructure
+            Let&apos;s Build Your Next Web App
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto">
-            Ready to revolutionize your cloud strategy? Our experts are here to
-            help you navigate the future of infrastructure with AI-powered
-            solutions.
+            Ready to launch your product? Our full-stack team crafts scalable solutions with React and Node.js.
           </p>
         </motion.div>
 
@@ -184,7 +182,7 @@ export default function DetailedContactPage() {
                       name="message"
                       rows={5}
                       className="w-full rounded-xl border-border bg-input dark:bg-gray-800 focus:ring-2 focus:ring-primary"
-                      placeholder="Tell us about your cloud infrastructure needs..."
+                      placeholder="Tell us about your project..."
                       disabled={isSubmitting}
                       required
                     />
@@ -229,22 +227,22 @@ export default function DetailedContactPage() {
                 Schedule a Consultation
               </h3>
               <ConsultationCard
-                title="Enterprise Consultation"
-                description="Strategic planning for large-scale cloud transformation"
+                title="Product Roadmap Consultation"
+                description="Planning your tech stack and launch strategy"
                 duration="60 minutes"
                 price="Free"
                 href="https://calendly.com/shhahhussain/h"
               />
               <ConsultationCard
                 title="Technical Deep Dive"
-                description="Architecture review and optimization recommendations"
+                description="Code review and architecture recommendations"
                 duration="90 minutes"
                 price="$299"
                 href="https://calendly.com/shhahhussain/90-minute-consultation"
               />
               <ConsultationCard
                 title="Quick Assessment"
-                description="Rapid evaluation of your current infrastructure"
+                description="Rapid evaluation of your app idea"
                 duration="30 minutes"
                 price="Free"
                 href="https://calendly.com/shhahhussain/h"
@@ -258,7 +256,7 @@ export default function DetailedContactPage() {
                 <h3 className="text-xl font-bold">Emergency Support</h3>
               </div>
               <p className="text-red-100 mb-4">
-                Critical infrastructure issues? Get immediate assistance 24/7.
+                Critical production issues? Get immediate assistance 24/7.
               </p>
               <div className="flex items-center gap-2 text-red-100">
                 <Clock className="w-4 h-4" />

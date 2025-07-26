@@ -5,126 +5,126 @@ import Image from "next/image"
 
 const services = [
   {
-    slug: "cloud-migration",
-    name: "Cloud Migration, Data Recovery & Backups",
-    description: "We ensure seamlessly cloud migration data security, simplified management, and compliance standards. Achieve uninterrupted business continuity with our seamless Data Recovery & Backup solutions.",
-    icon: Cloud,
-    details: "Our cloud migration service includes comprehensive planning, execution, and post-migration support. We ensure zero downtime during migration and provide robust backup solutions to protect your data.",
+    slug: "web-app-development",
+    name: "Web App Development",
+    description: "Responsive websites and apps using React and Tailwind CSS.",
+    icon: Code,
+    details: "We build modern interfaces with React and Tailwind CSS backed by Node.js services for a complete experience.",
     features: [
-      "Zero-downtime migration",
-      "Comprehensive backup solutions",
-      "Data security and compliance",
-      "Post-migration support",
-      "Disaster recovery planning"
+      "React component architecture",
+      "Tailwind CSS styling",
+      "State management",
+      "Testing setup",
+      "Automated deployments"
     ],
     benefits: [
-      "Reduced operational costs",
-      "Enhanced data security",
-      "Improved scalability",
-      "Better disaster recovery",
-      "Increased business continuity"
+      "Fast performance",
+      "Mobile-friendly design",
+      "Scalable codebase",
+      "Easy maintenance",
+      "Great user experience"
     ],
     image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop",
-    imageAlt: "Cloud migration visualization showing data transfer to cloud"
+    imageAlt: "Web development code editor"
   },
   {
-    slug: "kubernetes",
-    name: "Managed or Un-managed Kubernetes",
-    description: "Orchestrate containerized applications across AWS, Azure, and on-premises environments. Deploy, scale, and seamlessly upgrade containerized apps using Kubernetes clusters for optimal performance and flexibility.",
+    slug: "api-integration",
+    name: "API Integration & Backend",
+    description: "Node.js/Express APIs with MongoDB for seamless data flow.",
     icon: Server,
-    details: "We offer both managed and unmanaged Kubernetes solutions, allowing you to choose the level of control that suits your needs. Our team handles cluster management, monitoring, and optimization.",
+    details: "We craft secure REST APIs and handle authentication, database connections and third-party integrations.",
     features: [
-      "Cluster management",
-      "Automated scaling",
-      "Load balancing",
-      "Container orchestration",
-      "Monitoring and logging"
+      "REST/GraphQL endpoints",
+      "Authentication & authorization",
+      "Database integration",
+      "API documentation",
+      "Error handling"
     ],
     benefits: [
-      "Improved resource utilization",
-      "Enhanced scalability",
-      "Better application availability",
-      "Simplified deployment",
-      "Cost optimization"
+      "Reliable data flow",
+      "Secure access",
+      "Easily extendable",
+      "Smooth integration",
+      "Scalable services"
     ],
     image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=2074&auto=format&fit=crop",
-    imageAlt: "Kubernetes cluster visualization"
+    imageAlt: "Node.js server code"
   },
   {
-    slug: "terraform",
-    name: "Infrastructure as Code using Terraform",
-    description: "Establish an orchestration system through well-structured infrastructure, utilizing AWS and Azure, and the implementation of declarative code. Automate infrastructure deployment to ensure scalability and efficiency.",
+    slug: "database-design",
+    name: "Database Design & Optimization",
+    description: "Efficient MongoDB and SQL schemas for performance.",
     icon: Code,
-    details: "Our Terraform implementation enables you to manage your infrastructure as code, making it version-controlled, reusable, and easily maintainable. We help you automate your infrastructure deployment process.",
+    details: "We design reliable data models and tune queries for high performance and scalability.",
     features: [
-      "Infrastructure as Code",
-      "Version control",
-      "Automated deployment",
-      "Multi-cloud support",
-      "State management"
+      "Schema design",
+      "Index optimization",
+      "Data migrations",
+      "Backup strategies",
+      "Monitoring"
     ],
     benefits: [
-      "Consistent deployments",
-      "Reduced human error",
-      "Faster provisioning",
-      "Better collaboration",
-      "Cost savings"
+      "Fast queries",
+      "Reliable storage",
+      "Reduced costs",
+      "Scalable data models",
+      "Peace of mind"
     ],
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
-    imageAlt: "Code editor showing infrastructure as code"
+    imageAlt: "Database schema diagram"
   },
   {
-    slug: "web-app-cloud",
-    name: "Web App Cloud Infra",
-    description: "Rearchitect and repurpose your old legacy data and custom applications and seamlessly move them to the cloud using our specialized, scalable Web Application Cloud Infrastructure solutions for all business types.",
+    slug: "mvp-development",
+    name: "MVP & SaaS Development",
+    description: "Rapid product iterations with dashboards and auth.",
     icon: Cloud,
-    details: "We specialize in modernizing legacy applications and moving them to the cloud. Our solutions ensure your web applications are scalable, secure, and performant.",
+    details: "Launch your product quickly with secure authentication, billing integration and cloud deployment.",
     features: [
-      "Legacy application modernization",
-      "Cloud-native architecture",
-      "Scalable infrastructure",
-      "Security implementation",
-      "Performance optimization"
+      "User authentication",
+      "Admin dashboard",
+      "Subscription payments",
+      "Cloud deployment",
+      "Analytics integration"
     ],
     benefits: [
-      "Modern application architecture",
-      "Improved performance",
-      "Enhanced security",
-      "Better scalability",
-      "Reduced maintenance"
+      "Rapid go-to-market",
+      "Revenue ready",
+      "Flexible architecture",
+      "Secure users",
+      "Scalable infrastructure"
     ],
     image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop",
-    imageAlt: "Web application cloud infrastructure"
+    imageAlt: "SaaS dashboard screenshot"
   },
   {
-    slug: "devops",
-    name: "DevOps & Automation",
-    description: "DevOps and automation are now the standard for seamlessly deploying applications across development and production environments. Adopting Agile methodology gives companies the edge in delivering new products to market.",
+    slug: "full-stack-architecture",
+    name: "Full Stack Architecture",
+    description: "End-to-end solutions from frontend to deployment.",
     icon: RefreshCw,
-    details: "Our DevOps services help you implement CI/CD pipelines, automate testing, and streamline your development process. We help you adopt Agile methodologies for faster delivery.",
+    details: "We design scalable architectures, build REST APIs and ensure smooth deployments with best practices.",
     features: [
-      "CI/CD pipeline implementation",
-      "Automated testing",
-      "Agile methodology",
-      "Infrastructure automation",
-      "Monitoring and alerting"
+      "Architecture planning",
+      "Continuous deployment",
+      "Code reviews",
+      "Testing automation",
+      "Performance monitoring"
     ],
     benefits: [
-      "Faster time to market",
-      "Improved quality",
-      "Better collaboration",
-      "Reduced deployment risks",
-      "Increased efficiency"
+      "Stable releases",
+      "Optimized performance",
+      "Developer productivity",
+      "Reduced bugs",
+      "Future-proof stack"
     ],
     image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop",
-    imageAlt: "DevOps automation workflow"
+    imageAlt: "Full stack workflow"
   },
   {
     slug: "business-development",
     name: "Business Development Consulting",
-    description: "Accelerate your business growth with strategic consulting services. We help technology companies expand their market reach, optimize sales processes, and build lasting client relationships in the cloud and DevOps space.",
+    description: "Accelerate your business growth with strategic consulting. We help technology companies expand market reach and optimize sales for web products.",
     icon: TrendingUp,
-    details: "Our business development consulting services help technology companies accelerate growth through strategic market expansion, sales process optimization, and relationship building in the cloud and DevOps industry.",
+    details: "Our consulting services help tech companies grow through strategic market expansion, sales optimization and lasting client relationships in the web development industry.",
     features: [
       "Market analysis and strategy",
       "Sales process optimization",
@@ -145,9 +145,9 @@ const services = [
   {
     slug: "offshore-teams",
     name: "Offshore Teams",
-    description: "Reduced costs, gain access to a pool of expert and certified engineers. Use latest technology, start new projects, hire full-time employees and focus on your business growth with Edenic's offshore team services.",
+    description: "Access skilled full stack developers to scale your projects quickly and cost effectively.",
     icon: Users,
-    details: "Our offshore team services provide you with access to skilled professionals at competitive rates. We handle recruitment, training, and management of your offshore team.",
+    details: "We recruit and manage remote engineers so you can focus on building great products.",
     features: [
       "Skilled professional recruitment",
       "Team management",
@@ -247,7 +247,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
             <div className="bg-blue-600 dark:bg-gray-800 rounded-2xl p-8 text-center text-white shadow-xl">
               <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-              <p className="mb-6 opacity-90 dark:text-gray-200">Transform your business with our expert cloud solutions</p>
+              <p className="mb-6 opacity-90 dark:text-gray-200">Build your next web solution with our full stack experts</p>
               <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 dark:bg-gray-100 dark:text-blue-700 dark:hover:bg-gray-200">
                 Contact Us
               </Button>

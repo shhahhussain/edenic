@@ -1,20 +1,20 @@
-# AWS S3 File Upload Setup
+# S3 File Upload Setup
 
 ## Overview
-Enterprise-grade file upload solution using AWS S3 for reliable resume uploads.
+Enterprise-grade file upload solution using Amazon S3 for reliable resume uploads.
 
 ## Features
 - ✅ **50MB file limit** - Handle large PDFs and documents
 - ✅ **Secure storage** - Private S3 bucket with IAM authentication
 - ✅ **Cost-effective** - ~$0.23/month for 1000 uploads
-- ✅ **Industry standard** - AWS S3 with official SDK
+- ✅ **Industry standard** - Amazon S3 with official SDK
 - ✅ **Automatic email notifications** - Get notified of new applications
 
 ## Quick Setup
 
 ### 1. Create S3 Bucket
 ```bash
-# AWS Console → S3 → Create bucket
+# S3 Console → Create bucket
 Bucket name: edenic-resumes
 Region: us-east-1
 Block Public Access: Enabled (default)
@@ -22,7 +22,7 @@ Block Public Access: Enabled (default)
 
 ### 2. Create IAM User
 ```bash
-# AWS Console → IAM → Users → Create user
+# IAM Console → Users → Create user
 Username: edenic-s3-upload
 Permissions: AmazonS3FullAccess
 ```
@@ -45,7 +45,7 @@ AWS_S3_BUCKET=edenic-resumes
 ## How It Works
 
 ```
-User Upload → Next.js API → AWS S3 → Email Notification
+User Upload → Next.js API → S3 → Email Notification
 ```
 
 1. **User submits form** with resume file
@@ -112,7 +112,7 @@ npm run dev
 ### Production Deployment
 1. Set environment variables in hosting platform
 2. Test file uploads in production
-3. Monitor AWS costs via Cost Explorer
+3. Monitor storage costs via Cost Explorer
 
 ## Troubleshooting
 
@@ -138,7 +138,7 @@ The API provides detailed logging:
 
 ### Cost Optimization
 - Set lifecycle policies to delete old files
-- Monitor usage with AWS Cost Explorer
+- Monitor usage with cost explorer tools
 - Use S3 Intelligent Tiering for cost savings
 
 ### Performance
@@ -180,7 +180,7 @@ Handles career form submissions with file uploads.
 
 ## Monitoring
 
-### AWS CloudWatch
+### CloudWatch (optional)
 - Monitor S3 API calls
 - Track storage usage
 - Set up cost alerts

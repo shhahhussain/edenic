@@ -13,9 +13,9 @@ const caseStudies = [
     link: "#",
   },
   {
-    title: "Cloud Migration for Financial Services",
+    title: "SaaS Dashboard for Fintech",
     description:
-      "Seamlessly migrated a financial services firm to a hybrid cloud environment, enhancing security and reducing operational costs by 30%.",
+      "Built a full-stack dashboard with React and Node.js, enabling real-time analytics and secure payments.",
     industry: "Finance",
     link: "#",
   },

@@ -13,33 +13,33 @@ import Autoplay from "embla-carousel-autoplay";
 
 const certifications = [
   {
-    name: "Cloud Quest: Practitioner",
-    issuer: "Amazon Web Services",
+    name: "React Professional",
+    issuer: "Meta",
     logo: "/certificates/AWS Cloud Quest- Cloud Practitioner .png",
   },
   {
-    name: "Cloud Practitioner",
-    issuer: "Amazon Web Services",
+    name: "Node.js Services Developer",
+    issuer: "OpenJS Foundation",
     logo: "/certificates/AWS Certified Cloud Practitioner .png",
   },
   {
-    name: "Solutions Architect Associate",
-    issuer: "Amazon Web Services",
+    name: "MongoDB Developer",
+    issuer: "MongoDB University",
     logo: "/certificates/AWS Certified Solutions Architect – Associate .png",
   },
   {
-    name: "Solutions Architect Professional",
-    issuer: "Amazon Web Services",
+    name: "Next.js Expert",
+    issuer: "Vercel",
     logo: "/certificates/AWS Certified Solutions Architect – Professional .png",
   },
   {
-    name: "Certified Kubernetes Administrator",
-    issuer: "Cloud Native Computing Foundation",
+    name: "Tailwind CSS Pro",
+    issuer: "Tailwind Labs",
     logo: "/certificates/CKA- Certified Kubernetes Administrator .png",
   },
   {
-    name: "Huawei Cloud Developer Certification (HCCDA – Tech Essentials)",
-    issuer: "Huawei Cloud",
+    name: "Full Stack Essentials",
+    issuer: "Edenic Academy",
     logo: "/certificates/huawie_hccda.png",
   },
 ];

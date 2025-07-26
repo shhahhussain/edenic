@@ -60,7 +60,7 @@ export default function Contact() {
               Let&apos;s Connect
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto">
-              Ready to transform your business with cloud solutions? Get in touch with us today.
+              Ready to build your next web app? Get in touch with us today.
             </p>
           </motion.div>
 

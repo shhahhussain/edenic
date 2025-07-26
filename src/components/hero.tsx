@@ -21,10 +21,10 @@ export default function Hero() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:py-40 lg:items-center">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:col-span-1">
             <h1 className="mt-10 text-4xl font-bold tracking-tight text-white dark:text-gray-100 sm:text-6xl">
-              Transform Your Business with Cloud Solutions
+              Build Modern Web Apps with the MERN Stack
             </h1>
             <p className="mt-6 text-lg leading-8 text-blue-100 dark:text-gray-300">
-              We help businesses move their IT systems to the cloud, ensuring secure, flexible, and cost-efficient solutions tailored to your unique requirements.
+              We craft responsive interfaces and robust APIs using React, Node.js and MongoDB.
             </p>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-10 text-4xl font-bold tracking-tight text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] sm:text-6xl"
           >
-            Transform Your Business with Cloud Solutions
+            Build Modern Web Apps with the MERN Stack
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-6 text-lg leading-8 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]"
           >
-            We help businesses move their IT systems to the cloud, ensuring secure, flexible, and cost-efficient solutions tailored to your unique requirements.
+            We craft responsive interfaces and robust APIs using React, Node.js and MongoDB.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

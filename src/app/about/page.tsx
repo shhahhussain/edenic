@@ -10,7 +10,7 @@ const stats = [
   { value: "10+", label: "Satisfied Clients", icon: <Briefcase className="w-8 h-8" /> },
   { value: "3", label: "Countries Served", icon: <BarChart className="w-8 h-8" /> },
   { value: "99.9%", label: "Uptime SLA", icon: <Users className="w-8 h-8" /> },
-  { value: "5+", label: "Cloud Certifications", icon: <Award className="w-8 h-8" /> },
+  { value: "5+", label: "Full Stack Certifications", icon: <Award className="w-8 h-8" /> },
 ]
 
 const values = [
@@ -31,8 +31,8 @@ const leadership = [
   {
     name: "Hamza Khan",
     role: "Co-Founder & CTO",
-    bio: "Technical visionary specializing in cloud architecture, automation, and delivering robust, scalable solutions for diverse industries.",
-    skills: ["Cloud Architecture", "Infrastructure Automation", "Technical Leadership"],
+    bio: "Technical visionary specializing in full stack architecture and delivering robust, scalable solutions for diverse industries.",
+    skills: ["Full Stack Architecture", "Automation", "Technical Leadership"],
     image: "/leader-hamza.jpg",
   },
 ]
@@ -53,7 +53,7 @@ export default function AboutPage() {
             About Edenic
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto">
-            Pioneering the Future of Cloud. Founded by industry veterans, we&apos;re on a mission to revolutionize cloud infrastructure with AI-powered solutions that adapt, learn, and evolve with your business needs.
+            Pioneering the Future of Web Development. Founded by industry veterans, we&apos;re on a mission to build modern applications that adapt, learn, and evolve with your business needs.
           </p>
         </motion.section>
 
@@ -84,7 +84,7 @@ export default function AboutPage() {
           >
             <h2 className="text-3xl font-bold mb-4 flex items-center"><Target className="mr-3 text-blue-500"/> Our Mission</h2>
             <p className="text-muted-foreground text-lg">
-              To democratize enterprise-grade cloud infrastructure by making advanced AI-powered solutions accessible, affordable, and intuitive for organizations of all sizes. We believe every business deserves the power of quantum-safe, self-healing, and intelligent cloud systems.
+              To democratize modern web development by making advanced tools and best practices accessible and affordable for organizations of all sizes.
             </p>
           </motion.div>
           <motion.div
@@ -95,7 +95,7 @@ export default function AboutPage() {
           >
             <h2 className="text-3xl font-bold mb-4 flex items-center"><Lightbulb className="mr-3 text-blue-500"/> Our Vision</h2>
             <p className="text-muted-foreground text-lg">
-              A world where cloud infrastructure is completely autonomous, self-optimizing, and quantum-secure by default. We envision a future where businesses can focus entirely on innovation while their infrastructure intelligently adapts to meet any challenge.
+              A world where applications are fast, reliable, and secure by default. We envision a future where businesses focus entirely on innovation while their tech stack scales effortlessly.
             </p>
           </motion.div>
         </section>
@@ -157,7 +157,7 @@ export default function AboutPage() {
         >
           <h2 className="text-3xl font-bold mb-4">Ready to Join Our Journey?</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let&apos;s build the future of cloud infrastructure together.
+            Let&apos;s build the future of web applications together.
           </p>
           <div className="flex justify-center gap-4">
             <Link href="/contact" passHref>

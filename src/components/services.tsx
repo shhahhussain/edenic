@@ -8,45 +8,45 @@ import { useRef, useEffect, useState } from "react"
 
 const services = [
   {
-    slug: "cloud-migration",
-    name: "Cloud Migration, Data Recovery & Backups",
-    description: "We ensure seamlessly cloud migration data security, simplified management, and compliance standards. Achieve uninterrupted business continuity with our seamless Data Recovery & Backup solutions.",
-    icon: Cloud,
-  },
-  {
-    slug: "kubernetes",
-    name: "Managed or Un-managed Kubernetes",
-    description: "Orchestrate containerized applications across AWS, Azure, and on-premises environments. Deploy, scale, and seamlessly upgrade containerized apps using Kubernetes clusters for optimal performance and flexibility.",
-    icon: Server,
-  },
-  {
-    slug: "terraform",
-    name: "Infrastructure as Code using Terraform",
-    description: "Establish an orchestration system through well-structured infrastructure, utilizing AWS and Azure, and the implementation of declarative code. Automate infrastructure deployment to ensure scalability and efficiency.",
+    slug: "web-app-development",
+    name: "Web App Development",
+    description: "Responsive websites and apps using React and Tailwind CSS.",
     icon: Code,
   },
   {
-    slug: "web-app-cloud",
-    name: "Web App Cloud Infra",
-    description: "Rearchitect and repurpose your old legacy data and custom applications and seamlessly move them to the cloud using our specialized, scalable Web Application Cloud Infrastructure solutions for all business types.",
+    slug: "api-integration",
+    name: "API Integration & Backend",
+    description: "Node.js/Express APIs with MongoDB for seamless data flow.",
+    icon: Server,
+  },
+  {
+    slug: "database-design",
+    name: "Database Design & Optimization",
+    description: "Efficient MongoDB and SQL schemas for performance.",
+    icon: Code,
+  },
+  {
+    slug: "mvp-development",
+    name: "MVP & SaaS Development",
+    description: "Rapid product iterations with dashboards and auth.",
     icon: Cloud,
   },
   {
-    slug: "devops",
-    name: "DevOps & Automation",
-    description: "DevOps and automation are now the standard for seamlessly deploying applications across development and production environments. Adopting Agile methodology gives companies the edge in delivering new products to market.",
+    slug: "full-stack-architecture",
+    name: "Full Stack Architecture",
+    description: "End-to-end solutions from frontend to deployment.",
     icon: RefreshCw,
   },
   {
     slug: "business-development",
     name: "Business Development Consulting",
-    description: "Accelerate your business growth with strategic consulting services. We help technology companies expand their market reach, optimize sales processes, and build lasting client relationships in the cloud and DevOps space.",
+    description: "Accelerate your business growth with strategic consulting. We help technology companies expand their market reach and optimize sales for web products.",
     icon: TrendingUp,
   },
   {
     slug: "offshore-teams",
     name: "Offshore Teams",
-    description: "Reduced costs, gain access to a pool of expert and certified engineers. Use latest technology, start new projects, hire full-time employees and focus on your business growth with Edenic's offshore team services.",
+    description: "Access skilled full stack developers to scale your projects quickly and cost effectively.",
     icon: Users,
   },
 ]
