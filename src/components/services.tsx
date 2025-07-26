@@ -42,13 +42,7 @@ const services = [
     name: "Business Development Consulting",
     description: "Accelerate your business growth with strategic consulting services. We help technology companies expand their market reach, optimize sales processes, and build lasting client relationships in the cloud and DevOps space.",
     icon: TrendingUp,
-  },
-  {
-    slug: "offshore-teams",
-    name: "Offshore Teams",
-    description: "Reduced costs, gain access to a pool of expert and certified engineers. Use latest technology, start new projects, hire full-time employees and focus on your business growth with Edenic's offshore team services.",
-    icon: Users,
-  },
+  }
 ]
 
 export default function Services() {

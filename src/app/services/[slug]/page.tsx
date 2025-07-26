@@ -141,29 +141,6 @@ const services = [
     ],
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
     imageAlt: "Business development strategy meeting"
-  },
-  {
-    slug: "offshore-teams",
-    name: "Offshore Teams",
-    description: "Reduced costs, gain access to a pool of expert and certified engineers. Use latest technology, start new projects, hire full-time employees and focus on your business growth with Edenic's offshore team services.",
-    icon: Users,
-    details: "Our offshore team services provide you with access to skilled professionals at competitive rates. We handle recruitment, training, and management of your offshore team.",
-    features: [
-      "Skilled professional recruitment",
-      "Team management",
-      "Training and development",
-      "Quality assurance",
-      "Cost-effective solutions"
-    ],
-    benefits: [
-      "Cost savings",
-      "Access to global talent",
-      "Scalable team size",
-      "24/7 operations",
-      "Focus on core business"
-    ],
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
-    imageAlt: "Global team collaboration"
   }
 ]
 
