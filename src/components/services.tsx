@@ -1,6 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
-import { Cloud, Server, Code, RefreshCw, Users, TrendingUp } from "lucide-react"
+import { Cloud, Server, Code, RefreshCw, TrendingUp } from "lucide-react"
 import { Button } from "./ui/button"
 import Link from "next/link"
 import ServiceConnectors from "./ServiceConnectors"

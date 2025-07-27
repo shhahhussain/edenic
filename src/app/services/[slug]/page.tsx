@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { Cloud, Server, Code, RefreshCw, Users, TrendingUp } from "lucide-react"
+import { Cloud, Server, Code, RefreshCw, TrendingUp } from "lucide-react"
 import { Button } from "../../../components/ui/button"
 import Image from "next/image"
 
