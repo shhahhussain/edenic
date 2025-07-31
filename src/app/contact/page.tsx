@@ -84,9 +84,9 @@ export default function DetailedContactPage() {
           <InfoCard
             icon={<Phone />}
             title="Call Us"
-            details="+923110444411"
+            details="+923148260606"
             subtext="24/7 Enterprise Support"
-            href="tel:+923110444411"
+            href="tel:+923148260606"
           />
           <InfoCard
             icon={<Mail />}
@@ -168,7 +168,7 @@ export default function DetailedContactPage() {
                       name="phone"
                       type="tel"
                       label="Phone"
-                      placeholder="+923110444411"
+                      placeholder="+923148260606"
                       disabled={isSubmitting}
                     />
                   </div>
@@ -233,21 +233,21 @@ export default function DetailedContactPage() {
                 description="Strategic planning for large-scale cloud transformation"
                 duration="60 minutes"
                 price="Free"
-                href="https://calendly.com/shhahhussain/h"
+                href="https://calendly.com/hamzadevops/h"
               />
               <ConsultationCard
                 title="Technical Deep Dive"
                 description="Architecture review and optimization recommendations"
                 duration="90 minutes"
                 price="$299"
-                href="https://calendly.com/shhahhussain/90-minute-consultation"
+                href="https://calendly.com/hamzadevops/90-minute-consultation"
               />
               <ConsultationCard
                 title="Quick Assessment"
                 description="Rapid evaluation of your current infrastructure"
                 duration="30 minutes"
                 price="Free"
-                href="https://calendly.com/shhahhussain/h"
+                href="https://calendly.com/hamzadevops/h"
               />
             </div>
 
@@ -268,7 +268,7 @@ export default function DetailedContactPage() {
                 className="mt-4 w-full bg-white text-red-600 hover:bg-red-50"
                 asChild
               >
-                <a href="tel:+923110444411">Call Emergency Line</a>
+                <a href="tel:+923148260606">Call Emergency Line</a>
               </Button>
             </div>
           </motion.div>

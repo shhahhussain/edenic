@@ -21,6 +21,7 @@ const values = [
 ]
 
 const leadership = [
+  /*
   {
     name: "Shah Hussain",
     role: "Co-Founder & CEO",
@@ -35,6 +36,7 @@ const leadership = [
     skills: ["Cloud Architecture", "Infrastructure Automation", "Technical Leadership"],
     image: "/leader-hamza.jpg",
   },
+  */
 ]
 
 export default function AboutPage() {
