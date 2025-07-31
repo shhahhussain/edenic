@@ -6,6 +6,14 @@ import { Card } from "@/components/ui/card"
 import { Briefcase, BarChart, Users, Award, Target, Rocket, Lightbulb, TrendingUp } from "lucide-react"
 import Link from "next/link"
 
+interface LeadershipMember {
+  name: string
+  role: string
+  bio: string
+  skills: string[]
+  image: string
+}
+
 const stats = [
   { value: "10+", label: "Satisfied Clients", icon: <Briefcase className="w-8 h-8" /> },
   { value: "3", label: "Countries Served", icon: <BarChart className="w-8 h-8" /> },
@@ -20,7 +28,7 @@ const values = [
   { title: "Results Driven", description: "We measure our success by the tangible results we deliver - cost savings, efficiency gains, and business growth.", icon: <TrendingUp className="w-8 h-8" /> },
 ]
 
-const leadership = [
+const leadership: LeadershipMember[] = [
   /*
   {
     name: "Shah Hussain",
