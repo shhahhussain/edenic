@@ -1,29 +1,96 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, animate, useInView } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Lottie from "lottie-react"
+import shipAnimation from "@/lib/lottie/ship.json"
+import { useEffect, useRef, useState } from "react"
+
+function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
+  const ref = useRef<HTMLSpanElement | null>(null)
+  const [display, setDisplay] = useState(0)
+  const inView = useInView(ref, { once: true })
+
+  useEffect(() => {
+    if (inView) {
+      const controls = animate(0, value, {
+        duration: 1.2,
+        onUpdate: (v) => setDisplay(Math.round(v)),
+      })
+      return () => controls.stop()
+    }
+  }, [inView, value])
+
+  return (
+    <span ref={ref} className="text-4xl font-bold text-blue-600">
+      {display}
+      {suffix}
+    </span>
+  )
+}
 
 export default function AwsEcsMicroservicesCaseStudy() {
+  const stats = [
+    { label: "Deploy time", value: 12, suffix: "× faster" },
+    { label: "Release cadence", value: 10, suffix: "× jump" },
+    { label: "Downtime", value: 0, suffix: " min" },
+    { label: "Infra spend", value: 40, suffix: "% savings" },
+  ]
+
+  const timeline = [
+    "Infra audit and Terraform backbone.",
+    "Parallel dockerization of 49 services.",
+    "Reusable CI/CD templates for build, scan, test, deploy.",
+    "Fargate + ALB stood up with blue/green hooks.",
+    "Logging, tracing, alerting dashboards.",
+    "10% canary, then DNS flip after clean metrics.",
+    "Runbooks and onboarding pack for new services in <30 min.",
+  ]
+
+  const [spend, setSpend] = useState(10000)
+  const savings = Math.round(spend * 0.4)
+
   return (
     <div className="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-950 text-gray-900 dark:text-gray-50">
-      <div className="container mx-auto px-4 py-20 sm:py-28 space-y-20">
+      <div className="container mx-auto px-4 py-16 sm:py-24 space-y-20">
         <motion.section
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center"
+          className="flex flex-col-reverse md:flex-row items-center gap-10"
         >
-          <h1 className="text-5xl sm:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-400 mb-4">
-            49+ Microservices, One Seamless Platform
-          </h1>
-          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Cutting deploys from 2 hours to 10 minutes for a hyper-growth SaaS
-          </p>
+          <div className="md:w-1/2 space-y-6 text-center md:text-left">
+            <h1 className="text-5xl sm:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-400">
+              49+ Microservices, One Seamless Platform
+            </h1>
+            <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300">
+              Cutting deploys from 2 hours to 10 minutes for a hyper-growth SaaS
+            </p>
+            <Link href="/contact" passHref>
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+                Book a Call
+              </Button>
+            </Link>
+          </div>
+          <div className="md:w-1/2">
+            <Lottie animationData={shipAnimation} loop className="w-full h-full" />
+          </div>
         </motion.section>
 
-        <section className="space-y-10">
-          <h2 className="text-3xl font-bold">Snapshot</h2>
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {stats.map((s) => (
+            <div key={s.label} className="space-y-2">
+              <AnimatedNumber value={s.value} suffix={s.suffix} />
+              <p className="text-sm text-gray-600 dark:text-gray-400">{s.label}</p>
+            </div>
+          ))}
+        </section>
+
+        <section className="space-y-10 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold">
+            <span className="bg-blue-600 text-white px-3 py-1 rounded">Snapshot</span>
+          </h2>
           <p className="text-gray-700 dark:text-gray-400">
             A venture-backed SaaS hit the wall with a bloated monolith: slow releases, ballooning
             EC2 costs, and zero visibility. Edenic shattered the bottleneck by containerizing
@@ -32,7 +99,7 @@ export default function AwsEcsMicroservicesCaseStudy() {
           </p>
         </section>
 
-        <section className="space-y-10">
+        <section className="space-y-10 max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold">Pain Points</h2>
           <ul className="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-400">
             <li>Monolith gridlocked feature velocity and spiked EC2 bills.</li>
@@ -41,7 +108,7 @@ export default function AwsEcsMicroservicesCaseStudy() {
           </ul>
         </section>
 
-        <section className="space-y-10">
+        <section className="space-y-10 max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold">Objectives</h2>
           <ul className="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-400">
             <li>Decouple into independently deployable services.</li>
@@ -51,7 +118,7 @@ export default function AwsEcsMicroservicesCaseStudy() {
           </ul>
         </section>
 
-        <section className="space-y-10">
+        <section className="space-y-10 max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold">Solution Blueprint</h2>
           <ul className="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-400">
             <li>ECS Fargate clusters per environment, no servers to patch.</li>
@@ -64,15 +131,23 @@ export default function AwsEcsMicroservicesCaseStudy() {
 
         <section className="space-y-10">
           <h2 className="text-3xl font-bold">Rollout Timeline</h2>
-          <ol className="list-decimal pl-6 space-y-3 text-gray-700 dark:text-gray-400">
-            <li>Infra audit and Terraform backbone.</li>
-            <li>Parallel dockerization of 49 services.</li>
-            <li>Reusable CI/CD templates for build, scan, test, deploy.</li>
-            <li>Fargate + ALB stood up with blue/green hooks.</li>
-            <li>Logging, tracing, alerting dashboards.</li>
-            <li>10% canary, then DNS flip after clean metrics.</li>
-            <li>Runbooks and onboarding pack for new services in &lt;30 min.</li>
-          </ol>
+          <ul className="relative border-l-2 border-blue-600 ml-4">
+            {timeline.map((item, i) => (
+              <li key={i} className="mb-8 ml-6">
+                <span className="absolute -left-3 top-0 flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white text-sm">
+                  {i + 1}
+                </span>
+                <p className="text-gray-700 dark:text-gray-400">{item}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="space-y-10 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold">CI/CD Snapshot</h2>
+          <pre className="bg-gray-900 text-green-400 p-6 rounded-xl text-sm overflow-auto">
+            <code>{`$ gh workflow run deploy\n✓ build-and-deploy passed`}</code>
+          </pre>
         </section>
 
         <section className="space-y-10">
@@ -123,7 +198,7 @@ export default function AwsEcsMicroservicesCaseStudy() {
           </div>
         </section>
 
-        <section className="space-y-10">
+        <section className="space-y-10 max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold">Business Wins</h2>
           <ul className="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-400">
             <li>Same-day feature rollouts accelerate revenue experiments.</li>
@@ -133,7 +208,7 @@ export default function AwsEcsMicroservicesCaseStudy() {
           </ul>
         </section>
 
-        <section className="space-y-10">
+        <section className="space-y-10 max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold">Why Edenic</h2>
           <ul className="list-disc pl-6 space-y-3 text-gray-700 dark:text-gray-400">
             <li>Serverless-first ethos keeps OPEX lean.</li>
@@ -141,6 +216,27 @@ export default function AwsEcsMicroservicesCaseStudy() {
             <li>Certified pros (CKA, AWS-SAP) lock down security.</li>
             <li>No fluff—only quantifiable wins.</li>
           </ul>
+        </section>
+
+        <section className="space-y-10">
+          <h2 className="text-3xl font-bold text-center">Estimate Your Savings</h2>
+          <div className="max-w-md mx-auto space-y-4">
+            <input
+              type="range"
+              min={1000}
+              max={100000}
+              value={spend}
+              onChange={(e) => setSpend(Number(e.target.value))}
+              className="w-full"
+            />
+            <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+              <span>$1k</span>
+              <span>$100k</span>
+            </div>
+            <p className="text-xl font-bold text-blue-600 text-center">
+              Estimated monthly savings: ${savings.toLocaleString()}
+            </p>
+          </div>
         </section>
 
         <motion.section
