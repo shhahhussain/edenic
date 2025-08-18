@@ -78,9 +78,12 @@ export default function AwsEcsMicroservicesCaseStudy() {
           </div>
         </motion.section>
 
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((s) => (
-            <div key={s.label} className="space-y-2">
+            <div
+              key={s.label}
+              className="space-y-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow"
+            >
               <AnimatedNumber value={s.value} suffix={s.suffix} />
               <p className="text-sm text-gray-600 dark:text-gray-400">{s.label}</p>
             </div>
@@ -129,11 +132,14 @@ export default function AwsEcsMicroservicesCaseStudy() {
           </ul>
         </section>
 
-        <section className="space-y-10">
+        <section className="space-y-10 max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold">Rollout Timeline</h2>
           <ul className="relative border-l-2 border-blue-600 ml-4">
             {timeline.map((item, i) => (
-              <li key={i} className="mb-8 ml-6">
+              <li
+                key={i}
+                className="relative mb-8 ml-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow"
+              >
                 <span className="absolute -left-3 top-0 flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white text-sm">
                   {i + 1}
                 </span>
@@ -145,14 +151,14 @@ export default function AwsEcsMicroservicesCaseStudy() {
 
         <section className="space-y-10 max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold">CI/CD Snapshot</h2>
-          <pre className="bg-gray-900 text-green-400 p-6 rounded-xl text-sm overflow-auto">
+          <pre className="bg-gray-900 text-green-400 p-6 rounded-xl text-sm overflow-auto shadow-lg">
             <code>{`$ gh workflow run deploy\n✓ build-and-deploy passed`}</code>
           </pre>
         </section>
 
-        <section className="space-y-10">
-          <h2 className="text-3xl font-bold">Numbers That Matter</h2>
-          <div className="overflow-x-auto">
+        <section className="space-y-10 max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center">Numbers That Matter</h2>
+          <div className="overflow-x-auto bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b">
@@ -220,7 +226,7 @@ export default function AwsEcsMicroservicesCaseStudy() {
 
         <section className="space-y-10">
           <h2 className="text-3xl font-bold text-center">Estimate Your Savings</h2>
-          <div className="max-w-md mx-auto space-y-4">
+          <div className="max-w-md mx-auto space-y-4 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
             <input
               type="range"
               min={1000}
