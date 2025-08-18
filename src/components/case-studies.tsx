@@ -6,6 +6,13 @@ import { Button } from "./ui/button"
 
 const caseStudies = [
   {
+    title: "49+ Microservices on AWS ECS",
+    description:
+      "Serverless Fargate platform cut deploys from 2 hours to 10 minutes and dropped infrastructure costs by ~40%.",
+    industry: "SaaS",
+    link: "/case-studies/aws-ecs-microservices",
+  },
+  {
     title: "E-commerce Platform Overhaul",
     description:
       "Redesigned and optimized a major e-commerce platform, resulting in a 40% increase in conversion rates and 25% improvement in page load times.",
