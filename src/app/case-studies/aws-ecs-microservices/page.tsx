@@ -32,56 +32,56 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 
 export default function AwsEcsMicroservicesCaseStudy() {
   const stats = [
-    { label: "Deploy time", value: 12, suffix: "× faster" },
-    { label: "Release cadence", value: 10, suffix: "× jump" },
+    { label: "Deploy speed", value: 12, suffix: "× faster" },
+    { label: "Ship frequency", value: 7, suffix: "× jump" },
     { label: "Downtime", value: 0, suffix: " min" },
-    { label: "Infra spend", value: 40, suffix: "% savings" },
+    { label: "Cloud cost", value: 45, suffix: "% lower" },
   ]
 
   const timeline = [
-    "Infra audit & Terraform backbone",
-    "Parallel dockerization of 49 services",
-    "Reusable CI/CD templates (build → deploy)",
-    "Fargate + ALB with blue/green",
-    "Logging, tracing, alerting dashboards",
-    "10 % canary then DNS flip",
-    "Runbooks; new service in <30 min",
+    "Health-check of legacy infra",
+    "Dockerize 49 services in parallel",
+    "CI/CD templates rolled in 48 h",
+    "Fargate + blue/green cut-over",
+    "Logs, traces, alerts unified",
+    "10 % canary → DNS flip",
+    "Runbook: new service in <30 min",
   ]
 
   const metrics = [
-    { metric: "Deploy time", before: "≈2 h", after: "<10 min", change: "12× faster", tone: "green" },
-    { metric: "Release cadence", before: "1–2 / week", after: "Daily", change: "5–10×", tone: "green" },
-    { metric: "Downtime / deploy", before: "5–10 min", after: "0 min", change: "‑100 %", tone: "green" },
-    { metric: "Service spin‑up", before: "≈3 days", after: "<30 min", change: "100×", tone: "green" },
-    { metric: "Infra spend", before: "High EC2", after: "‑40 %", change: "‑40 %", tone: "yellow" },
+    { metric: "Deploy speed", before: "≈2 h", after: "<10 min", change: "12× faster", tone: "green" },
+    { metric: "Ship frequency", before: "1–2 / week", after: "Daily", change: "7×", tone: "green" },
+    { metric: "Downtime / deploy", before: "5–10 min", after: "0 min", change: "-100 %", tone: "green" },
+    { metric: "Service spin-up", before: "≈3 days", after: "<30 min", change: "144×", tone: "green" },
+    { metric: "Cloud spend", before: "Heavy EC2", after: "-45 %", change: "-45 %", tone: "yellow" },
   ]
 
   const pain = [
-    "Monolith gridlocked feature velocity & spiked EC2 bills",
-    "Manual release playbooks stole two hours per deploy",
-    "Logs & traces scattered across instances",
+    "Monolith throttled feature velocity & ballooned EC2 bills",
+    "Manual, fragile playbooks burned two hours every deploy",
+    "Logs & traces scattered—blind spots everywhere",
   ]
 
   const objectives = [
-    "Decouple into independently deployable services",
-    "Wire full CI/CD with instant rollback",
-    "Embed end‑to‑end observability",
-    "Slash operating cost without capping scale",
+    "Carve the monolith into deploy-once, scale-independent services",
+    "Wire bullet-proof CI/CD with one-click rollback",
+    "Centralise observability—logs, metrics, traces in one pane",
+    "Slash spend without capping growth",
   ]
 
   const blueprint = [
-    "ECS Fargate clusters per environment",
-    "ALB routes traffic to 49 target groups",
-    "GitHub Actions → ECR → CodeDeploy per service",
-    "AWS Cloud Map for discovery, Secrets Manager for creds",
-    "CloudWatch, X‑Ray, OpenSearch for unified telemetry",
+    "ECS Fargate clusters per stage",
+    "ALB routes traffic across 49 target groups",
+    "GitHub Actions → ECR → CodeDeploy on every merge",
+    "Cloud Map for discovery, Secrets Manager for creds",
+    "CloudWatch + X-Ray + OpenSearch for full-stack telemetry",
   ]
 
   const wins = [
-    "Same‑day feature rollouts accelerate revenue tests",
-    "Engineers focus on shipping, not firefighting",
-    "Auto‑scaling absorbs spikes without cost shocks",
-    "Investor confidence boosted by visible velocity",
+    "Same-day feature flags unlock rapid A/B revenue tests",
+    "Engineers ship—no more fire-drills or playbook roulette",
+    "Autoscaling absorbs traffic spikes minus cost spikes",
+    "Board & investors see velocity, bet bigger on roadmap",
   ]
 
   const sections = [
@@ -95,7 +95,7 @@ export default function AwsEcsMicroservicesCaseStudy() {
   ]
 
   const [spend, setSpend] = useState(10000)
-  const savings = Math.round(spend * 0.4)
+  const savings = Math.round(spend * 0.45)
 
   return (
     <div className="relative bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-950 text-gray-900 dark:text-gray-50">
@@ -117,10 +117,10 @@ export default function AwsEcsMicroservicesCaseStudy() {
         <motion.section initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex flex-col-reverse md:flex-row items-center gap-10">
           <div className="md:w-1/2 space-y-6 text-center md:text-left max-w-prose mx-auto md:mx-0">
             <h1 className="text-5xl sm:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-400">
-              49+ Microservices, One Seamless Platform
+              49 Microservices. Zero Bottlenecks.
             </h1>
             <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              2‑hour deploys → 10 min, 40 % cheaper
+              2-hour deploys crushed to 10 min—cloud bill down 45 %.
             </p>
           </div>
           <div className="md:w-1/2">
@@ -140,7 +140,7 @@ export default function AwsEcsMicroservicesCaseStudy() {
         <section className="space-y-8 max-w-prose mx-auto" id="snapshot">
           <h2 className="text-3xl font-bold"><span className="bg-blue-600 text-white px-3 py-1 rounded">Snapshot</span></h2>
           <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-            A venture‑backed SaaS hit the wall with a bloated monolith. Edenic containerized 49+ services and launched a serverless Fargate stack. Deploys now take under 10 min and infra spend dropped 40 %.
+            Venture-backed SaaS hit scale-wall. Edenic rebuilt the engine: containerized 49 services, rolled out serverless Fargate, and wired zero-touch CI/CD. Deploys now clock <10 min and OpEx shrank 45 %.
           </p>
         </section>
 
@@ -218,9 +218,9 @@ export default function AwsEcsMicroservicesCaseStudy() {
         </section>
 
         <section className="bg-white/60 dark:bg-gray-800/60 backdrop-blur p-12 rounded-2xl space-y-6 text-center">
-          <h2 className="text-3xl font-bold">Ready to slash your deploy times?</h2>
+          <h2 className="text-3xl font-bold">Ready to crush your deploy times?</h2>
           <p className="text-gray-700 dark:text-gray-300 max-w-prose mx-auto leading-relaxed">
-            Book a 15‑minute audit and uncover the fastest path to continuous delivery.
+            Grab a 15-minute infra audit—walk away with an action plan, no strings.
           </p>
           <Link href="/contact" passHref>
             <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
