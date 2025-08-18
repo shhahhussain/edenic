@@ -114,7 +114,12 @@ export default function AwsEcsMicroservicesCaseStudy() {
       </Link>
 
       <div className="container mx-auto px-4 py-16 space-y-24 max-w-5xl">
-        <motion.section initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex flex-col-reverse md:flex-row items-center gap-10">
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col-reverse md:flex-row items-center gap-10"
+        >
           <div className="md:w-1/2 space-y-6 text-center md:text-left max-w-prose mx-auto md:mx-0">
             <h1 className="text-5xl sm:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-400">
               49 Microservices. Zero Bottlenecks.
@@ -138,9 +143,11 @@ export default function AwsEcsMicroservicesCaseStudy() {
         </section>
 
         <section className="space-y-8 max-w-prose mx-auto" id="snapshot">
-          <h2 className="text-3xl font-bold"><span className="bg-blue-600 text-white px-3 py-1 rounded">Snapshot</span></h2>
+          <h2 className="text-3xl font-bold">
+            <span className="bg-blue-600 text-white px-3 py-1 rounded">Snapshot</span>
+          </h2>
           <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-            Venture-backed SaaS hit scale-wall. Edenic rebuilt the engine: containerized 49 services, rolled out serverless Fargate, and wired zero-touch CI/CD. Deploys now clock <10 min and OpEx shrank 45 %.
+            Venture-backed SaaS hit scale-wall. Edenic rebuilt the engine: containerized 49 services, rolled out serverless Fargate, and wired zero-touch CI/CD. Deploys now clock &lt;10 min and OpEx shrank 45 %.
           </p>
         </section>
 
@@ -212,7 +219,14 @@ export default function AwsEcsMicroservicesCaseStudy() {
 
         <section className="space-y-6 max-w-md mx-auto">
           <h2 className="text-3xl font-bold text-center">Estimate Your Savings</h2>
-          <input type="range" min={1000} max={100000} value={spend} onChange={(e) => setSpend(Number(e.target.value))} className="w-full" />
+          <input
+            type="range"
+            min={1000}
+            max={100000}
+            value={spend}
+            onChange={(e) => setSpend(Number(e.target.value))}
+            className="w-full"
+          />
           <p className="text-center text-sm">Monthly spend: ${spend.toLocaleString()}</p>
           <p className="text-xl font-bold text-blue-600 text-center">Estimated monthly savings: ${savings.toLocaleString()}</p>
         </section>
@@ -232,3 +246,4 @@ export default function AwsEcsMicroservicesCaseStudy() {
     </div>
   )
 }
+
