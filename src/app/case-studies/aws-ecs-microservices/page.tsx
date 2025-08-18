@@ -169,7 +169,9 @@ export default function AwsEcsMicroservicesCaseStudy() {
 
         <section
           id="snapshot"
-          ref={(el) => (sectionRefs.current["snapshot"] = el)}
+          ref={(el) => {
+            sectionRefs.current["snapshot"] = el
+          }}
           className="space-y-8"
         >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
@@ -190,7 +192,9 @@ export default function AwsEcsMicroservicesCaseStudy() {
         <section
           className="grid sm:grid-cols-2 gap-6"
           id="pain"
-          ref={(el) => (sectionRefs.current["pain"] = el)}
+          ref={(el) => {
+            sectionRefs.current["pain"] = el
+          }}
         >
           {pain.map((p) => (
             <div key={p} className="flex items-start gap-3 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
@@ -203,7 +207,9 @@ export default function AwsEcsMicroservicesCaseStudy() {
         <section
           className="grid sm:grid-cols-2 gap-6"
           id="solution"
-          ref={(el) => (sectionRefs.current["solution"] = el)}
+          ref={(el) => {
+            sectionRefs.current["solution"] = el
+          }}
         >
           {blueprint.map((b) => (
             <div key={b} className="flex items-start gap-3 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
@@ -221,7 +227,9 @@ export default function AwsEcsMicroservicesCaseStudy() {
 
         <details
           id="objectives"
-          ref={(el) => (sectionRefs.current["objectives"] = el)}
+          ref={(el) => {
+            sectionRefs.current["objectives"] = el
+          }}
           open={openAll}
           className="space-y-6"
         >
@@ -238,7 +246,9 @@ export default function AwsEcsMicroservicesCaseStudy() {
 
         <details
           id="timeline"
-          ref={(el) => (sectionRefs.current["timeline"] = el)}
+          ref={(el) => {
+            sectionRefs.current["timeline"] = el
+          }}
           open={openAll}
           className="space-y-6"
         >
@@ -257,7 +267,9 @@ export default function AwsEcsMicroservicesCaseStudy() {
 
         <details
           id="metrics"
-          ref={(el) => (sectionRefs.current["metrics"] = el)}
+          ref={(el) => {
+            sectionRefs.current["metrics"] = el
+          }}
           open={openAll}
           className="space-y-6"
         >
@@ -291,7 +303,9 @@ export default function AwsEcsMicroservicesCaseStudy() {
 
         <details
           id="wins"
-          ref={(el) => (sectionRefs.current["wins"] = el)}
+          ref={(el) => {
+            sectionRefs.current["wins"] = el
+          }}
           open={openAll}
           className="space-y-6"
         >
@@ -308,7 +322,9 @@ export default function AwsEcsMicroservicesCaseStudy() {
 
         <details
           id="savings"
-          ref={(el) => (sectionRefs.current["savings"] = el)}
+          ref={(el) => {
+            sectionRefs.current["savings"] = el
+          }}
           open={openAll}
           className="space-y-6 max-w-md mx-auto"
         >
