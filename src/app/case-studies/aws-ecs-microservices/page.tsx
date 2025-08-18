@@ -1,11 +1,9 @@
 "use client"
 
 import { motion, animate, useInView, useReducedMotion } from "framer-motion"
-import dynamic from "next/dynamic"
 import Link from "next/link"
-import { useEffect, useRef, useState } from "react"
+import { Fragment, useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
-import shipAnimation from "@/lib/lottie/ship.json"
 
 function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
   const prefersReducedMotion = useReducedMotion()
@@ -28,7 +26,6 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
   )
 }
 
-const Lottie = dynamic(() => import("lottie-react"), { ssr: false })
 
 export default function AwsEcsMicroservicesCaseStudy() {
   const stats = [
@@ -49,11 +46,11 @@ export default function AwsEcsMicroservicesCaseStudy() {
   ]
 
   const metrics = [
-    { metric: "Deploy speed", before: "≈2 h", after: "<10 min", change: "12× faster", tone: "green" },
-    { metric: "Ship frequency", before: "1–2 / week", after: "Daily", change: "7×", tone: "green" },
-    { metric: "Downtime / deploy", before: "5–10 min", after: "0 min", change: "-100 %", tone: "green" },
-    { metric: "Service spin-up", before: "≈3 days", after: "<30 min", change: "144×", tone: "green" },
-    { metric: "Cloud spend", before: "Heavy EC2", after: "-45 %", change: "-45 %", tone: "yellow" },
+    { metric: "Deploy time", before: "≈2 h", after: "<10 min", change: "12×", trend: "up" },
+    { metric: "Ship frequency", before: "1–2 / week", after: "Daily", change: "7×", trend: "up" },
+    { metric: "Downtime / deploy", before: "5–10 min", after: "0 min", change: "100 %", trend: "down" },
+    { metric: "Service spin-up", before: "≈3 days", after: "<30 min", change: "144×", trend: "up" },
+    { metric: "Cloud spend", before: "Heavy EC2", after: "-45 %", change: "45 %", trend: "down" },
   ]
 
   const pain = [
@@ -87,161 +84,255 @@ export default function AwsEcsMicroservicesCaseStudy() {
   const sections = [
     { id: "snapshot", title: "Snapshot" },
     { id: "pain", title: "Pain" },
-    { id: "objectives", title: "Objectives" },
     { id: "solution", title: "Solution" },
+    { id: "objectives", title: "Objectives" },
     { id: "timeline", title: "Timeline" },
     { id: "metrics", title: "Metrics" },
     { id: "wins", title: "Wins" },
+    { id: "savings", title: "Savings" },
   ]
 
   const [spend, setSpend] = useState(10000)
+  const presets = [1000, 10000, 50000]
   const savings = Math.round(spend * 0.45)
+
+  const [activeSection, setActiveSection] = useState("snapshot")
+  const [openAll, setOpenAll] = useState(false)
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({})
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      { threshold: [0.25] }
+    )
+    Object.values(sectionRefs.current).forEach((sec) => sec && observer.observe(sec))
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div className="relative bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-950 text-gray-900 dark:text-gray-50">
-      <aside className="hidden md:block fixed left-4 top-1/2 -translate-y-1/2 space-y-4">
+      <aside className="hidden md:block fixed right-4 top-1/2 -translate-y-1/2 space-y-4">
         {sections.map((s) => (
-          <a key={s.id} href={`#${s.id}`} className="block text-sm hover:text-blue-600">
+          <a key={s.id} href={`#${s.id}`} className="flex items-center gap-2 text-sm">
+            <span
+              className={`w-2 h-2 rounded-full border ${
+                activeSection === s.id ? "bg-blue-600 border-blue-600" : "border-gray-400"
+              }`}
+            />
             {s.title}
           </a>
         ))}
       </aside>
 
-      <Link href="/contact" passHref>
-        <Button size="lg" className="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white">
-          Book Call
-        </Button>
-      </Link>
-
-      <div className="container mx-auto px-4 py-16 space-y-24 max-w-5xl">
+      <div className="container mx-auto px-4 py-16 space-y-20 max-w-5xl">
         <motion.section
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col-reverse md:flex-row items-center gap-10"
+          className="text-center space-y-6"
         >
-          <div className="md:w-1/2 space-y-6 text-center md:text-left max-w-prose mx-auto md:mx-0">
-            <h1 className="text-5xl sm:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-400">
-              49 Microservices. Zero Bottlenecks.
-            </h1>
-            <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              2-hour deploys crushed to 10 min—cloud bill down 45 %.
-            </p>
-          </div>
-          <div className="md:w-1/2">
-            <Lottie animationData={shipAnimation} loop className="w-full h-full" aria-label="Deploy animation" />
-          </div>
+          <h1 className="text-5xl font-extrabold tracking-tight">
+            49 Micro-services. 10-Minute Deploys.
+          </h1>
+          <p className="text-2xl text-gray-800 dark:text-gray-300">
+            -40 % AWS spend. Zero downtime.
+          </p>
+          <svg
+            viewBox="0 0 100 100"
+            className="mx-auto w-48 h-48 text-blue-600"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="4"
+          >
+            <circle cx="50" cy="50" r="10" />
+            <circle cx="20" cy="20" r="6" />
+            <circle cx="80" cy="20" r="6" />
+            <circle cx="20" cy="80" r="6" />
+            <circle cx="80" cy="80" r="6" />
+            <line x1="50" y1="40" x2="20" y2="26" />
+            <line x1="50" y1="40" x2="80" y2="26" />
+            <line x1="50" y1="60" x2="20" y2="74" />
+            <line x1="50" y1="60" x2="80" y2="74" />
+          </svg>
+          <Link href="/contact" passHref>
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+              Book a 15-min Audit
+            </Button>
+          </Link>
         </motion.section>
 
-        <section className="grid grid-cols-2 sm:grid-cols-4 gap-6" id="snapshot">
-          {stats.map((s) => (
-            <div key={s.label} className="space-y-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow hover:scale-105 transition-transform">
-              <AnimatedNumber value={s.value} suffix={s.suffix} />
-              <p className="text-sm text-gray-600 dark:text-gray-400">{s.label}</p>
-            </div>
-          ))}
+        <section
+          id="snapshot"
+          ref={(el) => (sectionRefs.current["snapshot"] = el)}
+          className="space-y-8"
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+            {stats.map((s) => (
+              <div key={s.label} className="space-y-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow hover:scale-105 transition-transform">
+                <AnimatedNumber value={s.value} suffix={s.suffix} />
+                <p className="text-sm text-gray-700 dark:text-gray-300">{s.label}</p>
+              </div>
+            ))}
+          </div>
+          <div className="prose dark:prose-invert text-center mx-auto">
+            <p>
+              Venture-backed SaaS hit scale-wall. Edenic rebuilt the engine: containerized 49 services, rolled out serverless Fargate, and wired zero-touch CI/CD. Deploys now clock &lt;10 min and OpEx shrank 45 %.
+            </p>
+          </div>
         </section>
 
-        <section className="space-y-8 max-w-prose mx-auto" id="snapshot">
-          <h2 className="text-3xl font-bold">
-            <span className="bg-blue-600 text-white px-3 py-1 rounded">Snapshot</span>
-          </h2>
-          <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-            Venture-backed SaaS hit scale-wall. Edenic rebuilt the engine: containerized 49 services, rolled out serverless Fargate, and wired zero-touch CI/CD. Deploys now clock &lt;10 min and OpEx shrank 45 %.
-          </p>
-        </section>
-
-        <section className="grid sm:grid-cols-2 gap-6" id="pain">
+        <section
+          className="grid sm:grid-cols-2 gap-6"
+          id="pain"
+          ref={(el) => (sectionRefs.current["pain"] = el)}
+        >
           {pain.map((p) => (
             <div key={p} className="flex items-start gap-3 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
               <span className="h-3 w-3 mt-2 rounded-full bg-red-600" />
-              <p className="text-gray-700 dark:text-gray-400 leading-relaxed">{p}</p>
+              <p className="text-gray-800 dark:text-gray-200 leading-relaxed">{p}</p>
             </div>
           ))}
         </section>
 
-        <section className="grid sm:grid-cols-2 gap-6" id="objectives">
-          {objectives.map((o) => (
-            <div key={o} className="flex items-start gap-3 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
-              <span className="h-3 w-3 mt-2 rounded-full bg-blue-600" />
-              <p className="text-gray-700 dark:text-gray-400 leading-relaxed">{o}</p>
-            </div>
-          ))}
-        </section>
-
-        <section className="grid sm:grid-cols-2 gap-6" id="solution">
+        <section
+          className="grid sm:grid-cols-2 gap-6"
+          id="solution"
+          ref={(el) => (sectionRefs.current["solution"] = el)}
+        >
           {blueprint.map((b) => (
             <div key={b} className="flex items-start gap-3 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
               <span className="h-3 w-3 mt-2 rounded-full bg-green-600" />
-              <p className="text-gray-700 dark:text-gray-400 leading-relaxed">{b}</p>
+              <p className="text-gray-800 dark:text-gray-200 leading-relaxed">{b}</p>
             </div>
           ))}
         </section>
 
-        <section id="timeline" className="space-y-6 overflow-x-auto">
-          <h2 className="text-3xl font-bold">Rollout Timeline</h2>
-          <div className="flex gap-6 min-w-max px-1">
+        <div className="flex justify-end">
+          <Button variant="outline" onClick={() => setOpenAll((o) => !o)}>
+            {openAll ? "Close all" : "Open all"}
+          </Button>
+        </div>
+
+        <details
+          id="objectives"
+          ref={(el) => (sectionRefs.current["objectives"] = el)}
+          open={openAll}
+          className="space-y-6"
+        >
+          <summary className="cursor-pointer text-2xl font-bold">Objectives</summary>
+          <div className="mt-4 grid sm:grid-cols-2 gap-6">
+            {objectives.map((o) => (
+              <div key={o} className="flex items-start gap-3 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
+                <span className="h-3 w-3 mt-2 rounded-full bg-blue-600" />
+                <p className="text-gray-800 dark:text-gray-200 leading-relaxed">{o}</p>
+              </div>
+            ))}
+          </div>
+        </details>
+
+        <details
+          id="timeline"
+          ref={(el) => (sectionRefs.current["timeline"] = el)}
+          open={openAll}
+          className="space-y-6"
+        >
+          <summary className="cursor-pointer text-2xl font-bold">Timeline</summary>
+          <ol className="border-l-2 border-blue-600 ml-4 space-y-4">
             {timeline.map((t, i) => (
-              <div key={t} className="relative bg-white dark:bg-gray-800 p-4 rounded-xl shadow w-64 flex-shrink-0">
-                <span className="absolute -top-3 left-3 text-xs bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center">
+              <li key={t} className="relative pl-6">
+                <span className="absolute -left-3 top-0 bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">
                   {i + 1}
                 </span>
-                <p className="text-gray-700 dark:text-gray-400 leading-relaxed pt-2">{t}</p>
-              </div>
+                <p className="text-gray-800 dark:text-gray-200 leading-relaxed">{t}</p>
+              </li>
             ))}
-          </div>
-        </section>
+          </ol>
+        </details>
 
-        <section id="metrics" className="space-y-6">
-          <h2 className="text-3xl font-bold text-center">Numbers That Matter</h2>
-          <div className="grid sm:grid-cols-2 gap-6">
+        <details
+          id="metrics"
+          ref={(el) => (sectionRefs.current["metrics"] = el)}
+          open={openAll}
+          className="space-y-6"
+        >
+          <summary className="cursor-pointer text-2xl font-bold">Metrics</summary>
+          <div className="grid grid-cols-4 gap-4 text-sm">
+            <span className="font-semibold">Metric</span>
+            <span className="font-semibold">Before</span>
+            <span className="font-semibold">After</span>
+            <span className="font-semibold">Δ Change</span>
             {metrics.map((m) => (
-              <div key={m.metric} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow space-y-2">
-                <p className="font-semibold text-lg">{m.metric}</p>
-                <div className="flex justify-between text-sm">
-                  <span>{m.before}</span>
-                  <span>{m.after}</span>
-                </div>
-                <p className={`text-sm font-bold ${m.tone === "green" ? "text-green-600" : "text-yellow-500"}`}>{m.change}</p>
+              <Fragment key={m.metric}>
+                <span>{m.metric}</span>
+                <span aria-label={`before ${m.before}`}>{m.before}</span>
+                <span aria-label={`after ${m.after}`}>{m.after}</span>
+                <span className="flex items-center gap-1 text-green-700 font-semibold">
+                  {m.trend === "up" ? (
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 4l6 8h-4v8h-4v-8H6z" />
+                    </svg>
+                  ) : (
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 20l-6-8h4V4h4v8h4z" />
+                    </svg>
+                  )}
+                  {m.change}
+                </span>
+              </Fragment>
+            ))}
+          </div>
+        </details>
+
+        <details
+          id="wins"
+          ref={(el) => (sectionRefs.current["wins"] = el)}
+          open={openAll}
+          className="space-y-6"
+        >
+          <summary className="cursor-pointer text-2xl font-bold">Wins</summary>
+          <div className="mt-4 grid sm:grid-cols-2 gap-6">
+            {wins.map((w) => (
+              <div key={w} className="flex items-start gap-3 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
+                <span className="h-3 w-3 mt-2 rounded-full bg-indigo-600" />
+                <p className="text-gray-800 dark:text-gray-200 leading-relaxed">{w}</p>
               </div>
             ))}
           </div>
-        </section>
+        </details>
 
-        <section id="wins" className="grid sm:grid-cols-2 gap-6">
-          {wins.map((w) => (
-            <div key={w} className="flex items-start gap-3 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
-              <span className="h-3 w-3 mt-2 rounded-full bg-indigo-600" />
-              <p className="text-gray-700 dark:text-gray-400 leading-relaxed">{w}</p>
+        <details
+          id="savings"
+          ref={(el) => (sectionRefs.current["savings"] = el)}
+          open={openAll}
+          className="space-y-6 max-w-md mx-auto"
+        >
+          <summary className="cursor-pointer text-2xl font-bold text-center">Estimate Your Savings</summary>
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex gap-2 justify-center">
+              {presets.map((p) => (
+                <Button key={p} variant={p === spend ? "default" : "outline"} onClick={() => setSpend(p)}>
+                  ${p.toLocaleString()}
+                </Button>
+              ))}
             </div>
-          ))}
-        </section>
-
-        <section className="space-y-6 max-w-md mx-auto">
-          <h2 className="text-3xl font-bold text-center">Estimate Your Savings</h2>
-          <input
-            type="range"
-            min={1000}
-            max={100000}
-            value={spend}
-            onChange={(e) => setSpend(Number(e.target.value))}
-            className="w-full"
-          />
-          <p className="text-center text-sm">Monthly spend: ${spend.toLocaleString()}</p>
-          <p className="text-xl font-bold text-blue-600 text-center">Estimated monthly savings: ${savings.toLocaleString()}</p>
-        </section>
-
-        <section className="bg-white/60 dark:bg-gray-800/60 backdrop-blur p-12 rounded-2xl space-y-6 text-center">
-          <h2 className="text-3xl font-bold">Ready to crush your deploy times?</h2>
-          <p className="text-gray-700 dark:text-gray-300 max-w-prose mx-auto leading-relaxed">
-            Grab a 15-minute infra audit—walk away with an action plan, no strings.
-          </p>
-          <Link href="/contact" passHref>
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-              Book Now
-            </Button>
-          </Link>
-        </section>
+            <input
+              type="number"
+              value={spend}
+              onChange={(e) => setSpend(+e.target.value)}
+              className="w-32 text-center border rounded"
+            />
+            <p className="text-sm">Monthly spend: ${spend.toLocaleString()}</p>
+            <p className="text-xl font-bold text-blue-600 text-center">
+              Estimated monthly savings: <AnimatedNumber value={savings} />
+            </p>
+          </div>
+        </details>
       </div>
     </div>
   )
