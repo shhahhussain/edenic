@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
-import { Linkedin /*, Twitter, Instagram, Facebook */ } from "lucide-react"
+import { Linkedin, Twitter, Instagram, Facebook } from "lucide-react"
 
 const footerNavs = [
     {
@@ -39,23 +39,23 @@ const footerSocials = [
     {
         href: "https://www.linkedin.com/company/edenic-cloud",
         name: "LinkedIn",
-        icon: <Linkedin size={20} />, 
+        icon: <Linkedin size={20} />,
     },
-    // {
-    //     href: "https://x.com/edeniccloud",
-    //     name: "Twitter",
-    //     icon: <Twitter size={20} />,
-    // },
-    // {
-    //     href: "https://www.instagram.com/theedenic/",
-    //     name: "Instagram",
-    //     icon: <Instagram size={20} />,
-    // },
-    // {
-    //     href: "https://www.facebook.com/people/Edenic/61573554717921/",
-    //     name: "Facebook",
-    //     icon: <Facebook size={20} />,
-    // },
+    {
+        href: "https://x.com/edeniccloud",
+        name: "Twitter",
+        icon: <Twitter size={20} />,
+    },
+    {
+        href: "https://www.instagram.com/theedenic/",
+        name: "Instagram",
+        icon: <Instagram size={20} />,
+    },
+    {
+        href: "https://www.facebook.com/people/Edenic/61573554717921/",
+        name: "Facebook",
+        icon: <Facebook size={20} />,
+    },
 ]
 
 export const Footer = () => {
