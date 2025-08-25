@@ -29,6 +29,7 @@ const values = [
 ]
 
 const leadership: LeadershipMember[] = [
+  /*
   {
     name: "Shah Hussain",
     role: "Co-Founder & CEO",
@@ -43,6 +44,7 @@ const leadership: LeadershipMember[] = [
     skills: ["Cloud Architecture", "Infrastructure Automation", "Technical Leadership"],
     image: "/leader-hamza.jpg",
   },
+  */
 ]
 
 export default function AboutPage() {
